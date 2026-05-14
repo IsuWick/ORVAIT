@@ -143,7 +143,7 @@ export default function ProductsPage() {
                     <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.05rem", color: p.status === "Available" ? "var(--teal)" : "var(--gray-3)" }}>{p.pricing}</p>
                   </div>
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                    <Link href="/contact" className="btn-primary">
+                    <Link href={p.id === "recruit" && p.status === "Available" ? "/products/recruit" : "/contact"} className="btn-primary">
                       {p.status === "Available" ? "Get started" : "Join waitlist"}
                     </Link>
                     <Link href="/contact" className="btn-outline">Request demo</Link>
