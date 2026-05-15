@@ -17,11 +17,11 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2024",    title: "Founded",                  desc: "OrvaIt was founded in Colombo with a single mission: make AI accessible to Sri Lankan businesses." },
-  { year: "2024 Q4", title: "OrvaIt Recruit launched",  desc: "Our first product — a timed, proctored assessment platform — launched and onboarded its first 10 clients." },
-  { year: "2025 Q1", title: "OrvaIt Insight & Flow",    desc: "We expanded our product suite with business intelligence and workflow automation tools." },
-  { year: "2025 Q2", title: "40+ companies served",     desc: "Crossed 40 active clients across technology, finance, retail, and professional services in Sri Lanka." },
-  { year: "2025 Q3", title: "OrvaIt Guard (coming)",    desc: "AI cybersecurity monitoring — our most ambitious product — launches this quarter." },
+  { year: "2025",    title: "Founded",                  desc: "OrvaIt was founded in Colombo with a single mission: make AI accessible to Sri Lankan businesses." },
+  { year: "2025 Q4", title: "OrvaIt Recruit launched",  desc: "Our first product — a timed, proctored assessment platform — launched and onboarded its first 10 clients." },
+  { year: "2026 Q1", title: "OrvaIt Insight & Flow",    desc: "We expanded our product suite with business intelligence and workflow automation tools." },
+  { year: "2026 Q2", title: "40+ companies served",     desc: "Crossed 40 active clients across technology, finance, retail, and professional services in Sri Lanka." },
+  { year: "2026 Q3", title: "OrvaIt Guard (coming)",    desc: "AI cybersecurity monitoring — our most ambitious product — launches this quarter." },
 ];
 
 export default function AboutPage() {
@@ -66,7 +66,7 @@ export default function AboutPage() {
                   { label: "Products in market", value: "3" },
                   { label: "Companies served",   value: "40+" },
                   { label: "Team members",       value: "12" },
-                  { label: "Founded",            value: "2024" },
+                  { label: "Founded",            value: "2025" },
                 ].map(s => (
                   <div key={s.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 24px", background: "rgba(255,255,255,0.03)", border: "0.5px solid rgba(255,255,255,0.07)", borderRadius: 12, transition: "all 0.3s var(--ease-out)" }}>
                     <span style={{ color: "var(--gray-3)", fontSize: "0.9rem" }}>{s.label}</span>
@@ -145,16 +145,14 @@ export default function AboutPage() {
           </ScrollReveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
-              { initials: "KP", name: "Kaveesha Perera",       role: "Founder & CEO",    focus: "Product vision & partnerships" },
-              { initials: "RS", name: "Roshan Silva",           role: "CTO",              focus: "AI architecture & engineering" },
-              { initials: "AN", name: "Anushka Nanayakkara",   role: "Head of Design",   focus: "UX & product design" },
-              { initials: "DF", name: "Dilshan Fernando",       role: "Head of Sales",    focus: "Client success & growth" },
+              { img: "/isurindu.png", name: "Isurindu Wickramasinghe", role: "Founder & Owner", focus: "Product vision & partnerships" },
+              { img: "/ravidu.jpeg", name: "Ravidu Senavirathne", role: "CEO", focus: "AI architecture & engineering" },
+              { img: "/savidya.jpeg", name: "Savidya Anthoney", role: "Head of Design", focus: "UX & product design" },
+              { img: "/jithmi.jpg", name: "Jithmi Hettiarachchi", role: "Head of Sales", focus: "Client success & growth" },
             ].map((m, i) => (
               <ScrollReveal key={m.name} direction="up" delay={i * 80} threshold={0.06}>
                 <div className="card" style={{ padding: "28px", textAlign: "center" }}>
-                  <div style={{ width: 60, height: 60, borderRadius: "50%", background: "rgba(0,201,167,0.12)", border: "1px solid rgba(0,201,167,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem", color: "var(--teal)", margin: "0 auto 18px", transition: "all 0.3s var(--ease-out)" }}>
-                    {m.initials}
-                  </div>
+                  <img src={m.img} alt={m.name} style={{ width: "120px", height: "120px", borderRadius: "50%", objectFit: "cover", margin: "0 auto 18px", display: "block", border: "2px solid rgba(0,201,167,0.3)" }} />
                   <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", marginBottom: 5 }}>{m.name}</h4>
                   <p style={{ fontSize: "0.82rem", color: "var(--teal)", marginBottom: 6 }}>{m.role}</p>
                   <p style={{ fontSize: "0.78rem", color: "var(--gray-4)" }}>{m.focus}</p>
