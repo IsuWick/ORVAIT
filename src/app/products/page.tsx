@@ -195,49 +195,6 @@ export default function ProductsPage() {
           </div>
         </section>
       ))}
-
-      {/* PRICING TABLE */}
-      <section className="section" style={{ background: "var(--navy-2)" }}>
-        <div className="container">
-          <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 56 }}>
-              <p className="label" style={{ marginBottom: 16 }}>Pricing overview</p>
-              <h2 className="display-md">Simple, transparent pricing.</h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="scale" threshold={0.08}>
-            <div className="glass-card" style={{ padding: "8px", overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.88rem" }}>
-                <thead>
-                  <tr style={{ borderBottom: "0.5px solid rgba(255,255,255,0.08)" }}>
-                    {["Product", "Starter", "Growth", "Enterprise"].map(h => (
-                      <th key={h} style={{ textAlign: "left", padding: "16px 20px", color: "var(--gray-3)", fontWeight: 600, fontFamily: "var(--font-display)", fontSize: "0.8rem", letterSpacing: "0.06em", textTransform: "uppercase" }}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { name: "OrvaIt Recruit", starter: "Rs. 9,900",  growth: "Rs. 24,900", enterprise: "Custom" },
-                    { name: "OrvaIt Insight", starter: "Rs. 14,900", growth: "Rs. 34,900", enterprise: "Custom" },
-                    { name: "OrvaIt Flow",    starter: "Rs. 19,900", growth: "Rs. 44,900", enterprise: "Custom" },
-                    { name: "OrvaIt Guard",   starter: "—",           growth: "Coming Q3",  enterprise: "Coming Q3" },
-                  ].map((row, i) => (
-                    <tr key={row.name} style={{ borderBottom: "0.5px solid rgba(255,255,255,0.05)", background: i % 2 === 0 ? "rgba(255,255,255,0.01)" : "transparent" }}>
-                      <td style={{ padding: "16px 20px", fontWeight: 600, fontFamily: "var(--font-display)" }}>{row.name}</td>
-                      <td style={{ padding: "16px 20px", color: "var(--gray-2)" }}>{row.starter}</td>
-                      <td style={{ padding: "16px 20px", color: "var(--teal)", fontWeight: 600 }}>{row.growth}</td>
-                      <td style={{ padding: "16px 20px", color: "var(--gray-3)" }}>{row.enterprise}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </ScrollReveal>
-          <p style={{ textAlign: "center", color: "var(--gray-4)", fontSize: "0.8rem", marginTop: 20 }}>
-            All prices in LKR per month. Annual billing available at 20% discount. Contact us for enterprise quotes.
-          </p>
-        </div>
-      </section>
     </>
   );
 }
