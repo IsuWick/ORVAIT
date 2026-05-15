@@ -13,7 +13,7 @@ const products = [
     name: "OrvaIt Recruit",
     tagline: "Hire on evidence, not instinct.",
     tag: "HR Technology",
-    icon: "👥",
+    icon: <img src="https://i.pinimg.com/736x/a7/32/00/a732007514c446e141e884515cd02c9d.jpg" alt="HR" style={{ width: "100%", height: "100%", borderRadius: "14px", objectFit: "cover" }} />,
     status: "Available",
     color: "#00c9a7",
     description: "OrvaIt Recruit is a timed, proctored candidate assessment platform built specifically for Sri Lankan companies. Stop reading CVs that don't match reality — screen candidates with intelligent assessments and get scored reports instantly.",
@@ -35,7 +35,7 @@ const products = [
     name: "OrvaIt Insight",
     tagline: "Your data, finally telling the truth.",
     tag: "Business Intelligence",
-    icon: "📊",
+    icon: <img src="https://i.pinimg.com/736x/5d/c8/63/5dc8637e74fd17dea829ea06541c2b72.jpg" alt="Insight" style={{ width: "100%", height: "100%", borderRadius: "14px", objectFit: "cover" }} />,
     status: "Available",
     color: "#00c9a7",
     description: "OrvaIt Insight connects to your existing data sources and uses AI to surface the patterns, anomalies, and opportunities you would otherwise miss. No data scientist required — our models do the heavy lifting.",
@@ -57,7 +57,7 @@ const products = [
     name: "OrvaIt Flow",
     tagline: "Automate the boring. Focus on what matters.",
     tag: "Process Automation",
-    icon: "⚡",
+    icon: <img src="https://i.pinimg.com/736x/8a/35/fe/8a35fe04d6796bef41194d3a7f212e5e.jpg" alt="Flow" style={{ width: "100%", height: "100%", borderRadius: "14px", objectFit: "cover" }} />,
     status: "Available",
     color: "#00c9a7",
     description: "OrvaIt Flow is an intelligent workflow automation platform that connects your existing tools and replaces manual, repetitive tasks with smart automated pipelines — without requiring your team to write a single line of code.",
@@ -79,7 +79,7 @@ const products = [
     name: "OrvaIt Guard",
     tagline: "AI that watches so your team doesn't have to.",
     tag: "Cybersecurity",
-    icon: "🔒",
+    icon: <img src="https://i.pinimg.com/736x/2e/b6/f5/2eb6f5411b093a0c1294738e0e34b706.jpg" alt="Guard" style={{ width: "100%", height: "100%", borderRadius: "14px", objectFit: "cover" }} />,
     status: "Coming Q3 2025",
     color: "#7a94b0",
     description: "OrvaIt Guard brings enterprise-grade AI security monitoring to mid-size Sri Lankan businesses at a price that actually makes sense. Continuous threat detection, compliance monitoring, and automated incident response — 24/7.",
@@ -116,63 +116,74 @@ export default function ProductsPage() {
       </section>
 
       {/* PRODUCTS */}
+      <div style={{ padding: "40px 0", background: "var(--navy)", position: "relative", zIndex: 10 }}>
+        <div className="container" style={{ textAlign: "center", marginBottom: "60px" }}>
+           <h2 className="display-md fade-up-d2">Our <span className="teal fade-up-d3">Suite</span></h2>
+        </div>
+      </div>
       {products.map((p, i) => (
-        <section key={p.id} className="section" style={{ background: i % 2 === 1 ? "var(--navy-2)" : "var(--navy)", position: "relative", overflow: "hidden" }}>
-          {i % 2 === 0 && <div className="orb" style={{ width: 400, height: 400, top: "10%", right: "-5%", background: "rgba(0,201,167,0.04)", animationDelay: `${-i * 2}s` }} />}
+        <section key={p.id} className="section" style={{ background: i % 2 === 1 ? "var(--navy-2)" : "var(--navy)", position: "relative", overflow: "hidden", padding: "100px 0" }}>
+          {i % 2 === 0 && <div className="orb" style={{ width: 500, height: 500, top: "20%", right: "-10%", background: "rgba(0,201,167,0.05)", filter: "blur(60px)", animationDelay: `${-i * 2}s` }} />}
+          {i % 2 === 1 && <div className="orb" style={{ width: 500, height: 500, top: "20%", left: "-10%", background: "rgba(0,201,167,0.03)", filter: "blur(60px)", animationDelay: `${-i * 2}s` }} />}
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "flex-start", direction: i % 2 === 1 ? "rtl" : "ltr" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center", direction: i % 2 === 1 ? "rtl" : "ltr" }}>
 
               <ScrollReveal direction={i % 2 === 1 ? "right" : "left"} threshold={0.06}>
-                <div style={{ direction: "ltr" }}>
+                <div style={{ direction: "ltr", paddingRight: i % 2 === 0 ? "20px" : "0", paddingLeft: i % 2 === 1 ? "20px" : "0" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 22 }}>
-                    <span style={{ fontSize: "38px" }}>{p.icon}</span>
-                    <span className="chip">{p.tag}</span>
-                    <span style={{ fontSize: "0.7rem", fontWeight: 500, padding: "3px 12px", borderRadius: 100, border: `0.5px solid ${p.status === "Available" ? "rgba(0,201,167,0.3)" : "rgba(255,255,255,0.1)"}`, color: p.status === "Available" ? "var(--teal)" : "var(--gray-3)" }}>
+                    <div style={{ width: 56, height: 56, borderRadius: 16, background: "rgba(0,201,167,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", border: "1px solid rgba(0,201,167,0.2)", boxShadow: "0 0 20px rgba(0,201,167,0.1)" }}>{p.icon}</div>
+                    <span className="chip" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}>{p.tag}</span>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 600, padding: "4px 14px", borderRadius: 100, border: `1px solid ${p.status === "Available" ? "rgba(0,201,167,0.4)" : "rgba(255,255,255,0.1)"}`, color: p.status === "Available" ? "var(--teal)" : "var(--gray-3)", background: p.status === "Available" ? "rgba(0,201,167,0.05)" : "transparent", boxShadow: p.status === "Available" ? "0 0 10px rgba(0,201,167,0.1)" : "none" }}>
                       {p.status}
                     </span>
                   </div>
-                  <h2 className="display-md" style={{ marginBottom: 14 }}>{p.name}</h2>
-                  <p style={{ color: "var(--teal)", fontFamily: "var(--font-display)", fontSize: "1.05rem", fontStyle: "italic", marginBottom: 22 }}>
+                  <h2 className="display-md" style={{ marginBottom: 14, letterSpacing: "-0.02em" }}>{p.name}</h2>
+                  <p style={{ color: "var(--teal)", fontFamily: "var(--font-display)", fontSize: "1.15rem", fontStyle: "italic", marginBottom: 24, fontWeight: 500 }}>
                     &ldquo;{p.tagline}&rdquo;
                   </p>
-                  <p style={{ color: "var(--gray-2)", lineHeight: 1.85, marginBottom: 30, fontWeight: 300 }}>
+                  <p style={{ color: "var(--gray-2)", lineHeight: 1.8, marginBottom: 35, fontWeight: 300, fontSize: "1.05rem", paddingRight: i % 2 === 0 ? "10%" : "0" }}>
                     {p.description}
                   </p>
-                  <div style={{ background: "rgba(0,201,167,0.06)", border: "0.5px solid rgba(0,201,167,0.15)", borderRadius: 12, padding: "14px 20px", marginBottom: 30, display: "inline-block" }}>
-                    <p style={{ fontSize: "0.72rem", color: "var(--gray-3)", marginBottom: 3 }}>Starting at</p>
-                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.05rem", color: p.status === "Available" ? "var(--teal)" : "var(--gray-3)" }}>{p.pricing}</p>
+                  <div style={{ background: "linear-gradient(135deg, rgba(0,201,167,0.1) 0%, rgba(0,201,167,0.02) 100%)", backdropFilter: "blur(10px)", border: "1px solid rgba(0,201,167,0.2)", borderRadius: 16, padding: "18px 24px", marginBottom: 35, display: "inline-block", boxShadow: "0 4px 24px rgba(0,0,0,0.2)" }}>
+                    <p style={{ fontSize: "0.75rem", color: "var(--gray-1)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", fontWeight: 600 }}>Starting at</p>
+                    <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.3rem", color: p.status === "Available" ? "var(--teal)" : "var(--gray-3)" }}>{p.pricing}</p>
                   </div>
-                  <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                    <Link href={p.id === "recruit" && p.status === "Available" ? "/products/recruit" : "/contact"} className="btn-primary">
-                      {p.status === "Available" ? "Get started" : "Join waitlist"}
+                  <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                    <Link href={p.id === "recruit" && p.status === "Available" ? "/products/recruit" : "/contact"} className="btn-primary" style={{ padding: "14px 28px", fontSize: "1rem" }}>
+                      {p.status === "Available" ? "Get started →" : "Join waitlist"}
                     </Link>
-                    <Link href="/contact" className="btn-outline">Request demo</Link>
+                    <Link href="/contact" className="btn-outline" style={{ padding: "14px 28px", fontSize: "1rem" }}>Request demo</Link>
                   </div>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal direction={i % 2 === 1 ? "left" : "right"} delay={100} threshold={0.06}>
-                <div style={{ direction: "ltr" }}>
-                  <div className="glass-card" style={{ padding: "28px", marginBottom: 20 }}>
-                    <p style={{ fontFamily: "var(--font-display)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", color: "var(--gray-3)", textTransform: "uppercase", marginBottom: 20 }}>
-                      Features
+                <div style={{ direction: "ltr", position: "relative" }}>
+                  
+                  {/* Abstract glowing background behind features */}
+                  <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "100%", height: "100%", background: `radial-gradient(circle, ${p.status === "Available" ? "rgba(0,201,167,0.15)" : "rgba(122,148,176,0.15)"} 0%, transparent 70%)`, zIndex: -1, filter: "blur(40px)" }} />
+
+                  <div className="glass-card" style={{ padding: "40px", marginBottom: 24, border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)", backdropFilter: "blur(20px)", borderRadius: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
+                    <p style={{ fontFamily: "var(--font-display)", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.15em", color: "var(--white)", textTransform: "uppercase", marginBottom: 24, display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--teal)", display: "inline-block", boxShadow: "0 0 10px var(--teal)" }} />
+                      Core Features
                     </p>
-                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 13 }}>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 16 }}>
                       {p.features.map(f => (
-                        <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: "0.88rem", color: "var(--gray-2)" }}>
-                          <span style={{ color: "var(--teal)", fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+                        <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 14, fontSize: "0.95rem", color: "var(--gray-2)", lineHeight: 1.5 }}>
+                          <span style={{ color: "var(--teal)", fontWeight: 700, flexShrink: 0, marginTop: 2, background: "rgba(0,201,167,0.1)", width: 20, height: 20, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.7rem" }}>✓</span>
                           {f}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <div>
-                    <p style={{ fontFamily: "var(--font-display)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.12em", color: "var(--gray-3)", textTransform: "uppercase", marginBottom: 14 }}>
+                  <div className="glass-card" style={{ padding: "24px 40px", border: "1px solid rgba(255,255,255,0.05)", background: "rgba(0,0,0,0.2)", borderRadius: "24px" }}>
+                    <p style={{ fontFamily: "var(--font-display)", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.15em", color: "var(--gray-3)", textTransform: "uppercase", marginBottom: 16 }}>
                       Built for
                     </p>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                       {p.usecases.map(u => (
-                        <span key={u} style={{ background: "rgba(255,255,255,0.04)", border: "0.5px solid rgba(255,255,255,0.09)", borderRadius: 8, padding: "7px 14px", fontSize: "0.8rem", color: "var(--gray-2)" }}>
+                        <span key={u} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 10, padding: "8px 16px", fontSize: "0.85rem", color: "var(--gray-1)" }}>
                           {u}
                         </span>
                       ))}
