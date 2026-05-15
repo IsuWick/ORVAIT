@@ -216,36 +216,14 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/products" className="btn-primary">
+                <Link href="/products/recruit" className="btn-primary">
                   Learn more <ArrowIcon />
                 </Link>
               </div>
 
-              {/* Mockup panel */}
-              <div style={{ background: "rgba(6,12,25,0.65)", borderRadius: 16, border: "0.5px solid rgba(255,255,255,0.08)", padding: "24px", fontFamily: "monospace", position: "relative", zIndex: 1 }}>
-                <div style={{ display: "flex", gap: 6, marginBottom: 18 }}>
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#ff5f57" }} />
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#febc2e" }} />
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#28c840" }} />
-                </div>
-                <div style={{ fontSize: "0.78rem", color: "var(--gray-3)", lineHeight: 1.9 }}>
-                  <div style={{ color: "var(--teal)", marginBottom: 10, fontSize: "0.7rem", letterSpacing: "0.05em" }}>// Assessment dashboard</div>
-                  {[
-                    { name: "Kavinda Perera",  score: "18/20", status: "Shortlisted", color: "#00c9a7" },
-                    { name: "Dilani Silva",    score: "14/20", status: "Review",      color: "#febc2e" },
-                    { name: "Roshan Fernando", score: "9/20",  status: "Declined",    color: "#ff5f57" },
-                  ].map(c => (
-                    <div key={c.name} style={{ display: "flex", justifyContent: "space-between", padding: "9px 0", borderBottom: "0.5px solid rgba(255,255,255,0.06)" }}>
-                      <span style={{ color: "var(--gray-2)" }}>{c.name}</span>
-                      <span style={{ color: "var(--white)", fontWeight: 600 }}>{c.score}</span>
-                      <span style={{ color: c.color }}>{c.status}</span>
-                    </div>
-                  ))}
-                  <div style={{ marginTop: 16, padding: "12px", background: "rgba(0,201,167,0.08)", borderRadius: 8, borderLeft: "2px solid var(--teal)" }}>
-                    <span style={{ color: "var(--teal)", fontWeight: 600 }}>3 candidates screened</span><br />
-                    <span style={{ color: "var(--gray-3)", fontSize: "0.7rem" }}>Saved ~8 hours of interviews</span>
-                  </div>
-                </div>
+              {/* Mockup panel / Image */}
+              <div style={{ background: "rgba(6,12,25,0.65)", borderRadius: 16, border: "0.5px solid rgba(255,255,255,0.08)", padding: "8px", position: "relative", zIndex: 1, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                <img src="/recrutment.png" alt="OrvaIt Recruit Screenshot" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} />
               </div>
             </div>
           </ScrollReveal>
@@ -253,14 +231,14 @@ export default function Home() {
           {/* Products grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {[
-              { name: "OrvaIt Insight", tag: "Analytics",  icon: "📊", desc: "AI-powered business intelligence dashboards that surface what matters most, automatically.", status: "Available" },
-              { name: "OrvaIt Flow",    tag: "Automation", icon: "⚡", desc: "Intelligent workflow automation that eliminates repetitive tasks and connects your existing tools.", status: "Available" },
-              { name: "OrvaIt Guard",   tag: "Security",   icon: "🔒", desc: "AI-driven cybersecurity monitoring for small and mid-size enterprises in Sri Lanka.", status: "Coming soon" },
+              { name: "OrvaIt Insight", tag: "Analytics",  icon: <img src="https://i.pinimg.com/736x/5d/c8/63/5dc8637e74fd17dea829ea06541c2b72.jpg" alt="Insight" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "AI-powered business intelligence dashboards that surface what matters most, automatically.", status: "Available" },
+              { name: "OrvaIt Flow",    tag: "Automation", icon: <img src="https://i.pinimg.com/736x/8a/35/fe/8a35fe04d6796bef41194d3a7f212e5e.jpg" alt="Flow" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "Intelligent workflow automation that eliminates repetitive tasks and connects your existing tools.", status: "Available" },
+              { name: "OrvaIt Guard",   tag: "Security",   icon: <img src="https://i.pinimg.com/736x/2e/b6/f5/2eb6f5411b093a0c1294738e0e34b706.jpg" alt="Guard" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "AI-driven cybersecurity monitoring for small and mid-size enterprises in Sri Lanka.", status: "Coming soon" },
             ].map((p, i) => (
               <ScrollReveal key={p.name} direction="up" delay={i * 100} threshold={0.08}>
                 <div className="card" style={{ height: "100%" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 18 }}>
-                    <div style={{ fontSize: "30px" }}>{p.icon}</div>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>{p.icon}</div>
                     <span style={{ fontSize: "0.68rem", color: p.status === "Coming soon" ? "var(--gray-4)" : "var(--teal)", border: `0.5px solid ${p.status === "Coming soon" ? "rgba(255,255,255,0.08)" : "rgba(0,201,167,0.3)"}`, padding: "3px 10px", borderRadius: 100, fontWeight: 500 }}>
                       {p.status}
                     </span>
@@ -304,10 +282,10 @@ export default function Home() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               {[
-                { icon: "🧠", title: "AI & Machine Learning",  desc: "Custom models trained on your data and industry context." },
-                { icon: "⚡", title: "Process Automation",     desc: "Replace manual workflows with intelligent automated pipelines." },
-                { icon: "📊", title: "Data Intelligence",      desc: "Transform raw data into strategic business decisions." },
-                { icon: "🔒", title: "Secure by Design",       desc: "Enterprise-grade security built into every product layer." },
+                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/52/0a/2f/520a2f3988f32dd89222a0949bcf4e27_720w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "AI & Machine Learning",  desc: "Custom models trained on your data and industry context." },
+                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/b9/9a/68/b99a6859f4d5bb703e9b069f44f0353b_540w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Process Automation",     desc: "Replace manual workflows with intelligent automated pipelines." },
+                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/0c/24/44/0c2444073f97ca37892ec777b6b7a1b5_360w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Data Intelligence",      desc: "Transform raw data into strategic business decisions." },
+                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/10/78/6f/10786f0093b83b318439da657c90b98a_540w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Secure by Design",       desc: "Enterprise-grade security built into every product layer." },
               ].map((f, i) => (
                 <ScrollReveal key={f.title} direction="scale" delay={i * 80} threshold={0.08}>
                   <div className="feature-card" style={{ padding: "28px" }}>
