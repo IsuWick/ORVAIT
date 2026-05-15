@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: "🧠",
+    icon: <img src="https://i.pinimg.com/736x/70/14/94/701494637e72a9942d059c966160c125.jpg" alt="AI Strategy & Consulting" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "AI Strategy & Consulting",
     desc: "Not sure where AI fits into your business? We audit your current processes, identify the highest-impact opportunities, and deliver a practical roadmap — not a 200-page report you'll never read.",
     deliverables: ["AI readiness assessment", "Opportunity mapping workshop", "ROI-prioritised roadmap", "Vendor and build vs buy analysis"],
@@ -17,7 +17,7 @@ const services = [
     ideal: "Companies exploring AI for the first time",
   },
   {
-    icon: "💻",
+    icon: <img src="https://i.pinimg.com/736x/bf/e0/3e/bfe03e87eacbed794ab1b58f567c00d1.jpg" alt="Custom AI Software Development" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "Custom AI Software Development",
     desc: "Off-the-shelf software doesn't fit your workflow? We design and build bespoke AI-powered applications from scratch — fully owned by you, built to scale.",
     deliverables: ["Full-stack web or mobile app", "Custom AI/ML models", "API integrations", "Deployment + 6-month support"],
@@ -25,7 +25,7 @@ const services = [
     ideal: "Businesses with unique operational needs",
   },
   {
-    icon: "⚡",
+    icon: <img src="https://i.pinimg.com/736x/5d/df/46/5ddf463a15359ec30e50c1f8eba82d9e.jpg" alt="Process Automation" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "Process Automation",
     desc: "We map, optimise, and automate your most time-consuming workflows — from invoice processing to employee onboarding — reducing manual effort by 60–90%.",
     deliverables: ["Process audit and mapping", "Automation architecture design", "Build and testing", "Team training and handover"],
@@ -33,7 +33,7 @@ const services = [
     ideal: "Ops-heavy teams drowning in manual tasks",
   },
   {
-    icon: "📊",
+    icon: <img src="https://i.pinimg.com/736x/6c/46/1b/6c461bc61ae1012c6fd6fec0a5eef284.jpg" alt="Data Analytics & BI" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "Data Analytics & BI",
     desc: "Your data is sitting in spreadsheets, ERPs, and databases — doing nothing. We connect it all, build AI models on top, and give you a live view of your business health.",
     deliverables: ["Data audit and architecture", "ETL pipeline setup", "Dashboard design and build", "AI insights layer"],
@@ -41,7 +41,7 @@ const services = [
     ideal: "Decision-makers flying blind without data",
   },
   {
-    icon: "🔗",
+    icon: <img src="https://i.pinimg.com/736x/04/62/d6/0462d6a689202be7955ff5f99bdab462.jpg" alt="Systems Integration" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "Systems Integration",
     desc: "Your CRM doesn't talk to your ERP. Your WhatsApp inquiries never reach your sales team. We connect your tools into a single, intelligent operating system.",
     deliverables: ["Integration architecture", "API development", "Data sync and transformation", "Monitoring and alerting"],
@@ -49,7 +49,7 @@ const services = [
     ideal: "Companies running 5+ disconnected tools",
   },
   {
-    icon: "🎓",
+    icon: <img src="https://i.pinimg.com/736x/9f/06/ae/9f06aee1108bc82ef7595a2abd91fbf8.jpg" alt="AI Training & Workshops" style={{ width: "140px", height: "140px", borderRadius: "12px", objectFit: "cover", display: "block" }} />,
     title: "AI Training & Workshops",
     desc: "Upskill your team to work alongside AI tools confidently. From executive briefings to hands-on technical workshops — we teach your people, not just your software.",
     deliverables: ["Executive AI briefing", "Team capability assessment", "Hands-on tool training", "Ongoing Q&A support"],
@@ -82,7 +82,7 @@ export default function ServicesPage() {
             {services.map((s, i) => (
               <ScrollReveal key={s.title} direction="up" delay={i % 2 === 0 ? 0 : 100} threshold={0.06}>
                 <div className="card" style={{ padding: "36px", height: "100%" }}>
-                  <div className="icon-box">{s.icon}</div>
+                  <div style={{ marginBottom: "20px" }}>{s.icon}</div>
                   <span className="chip" style={{ marginBottom: 16, display: "inline-block" }}>{s.duration}</span>
                   <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.25rem", fontWeight: 700, marginBottom: 14 }}>{s.title}</h3>
                   <p style={{ color: "var(--gray-2)", fontSize: "0.92rem", lineHeight: 1.8, marginBottom: 24, fontWeight: 300 }}>{s.desc}</p>
