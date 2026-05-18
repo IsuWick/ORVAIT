@@ -126,7 +126,7 @@ export default function ProductsPage() {
           {i % 2 === 0 && <div className="orb" style={{ width: 500, height: 500, top: "20%", right: "-10%", background: "rgba(0,201,167,0.05)", filter: "blur(60px)", animationDelay: `${-i * 2}s` }} />}
           {i % 2 === 1 && <div className="orb" style={{ width: 500, height: 500, top: "20%", left: "-10%", background: "rgba(0,201,167,0.03)", filter: "blur(60px)", animationDelay: `${-i * 2}s` }} />}
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center", direction: i % 2 === 1 ? "rtl" : "ltr" }}>
+            <div className="product-row-grid" style={{ direction: i % 2 === 1 ? "rtl" : "ltr" }}>
 
               <ScrollReveal direction={i % 2 === 1 ? "right" : "left"} threshold={0.06}>
                 <div style={{ direction: "ltr", paddingRight: i % 2 === 0 ? "20px" : "0", paddingLeft: i % 2 === 1 ? "20px" : "0" }}>

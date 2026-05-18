@@ -78,7 +78,7 @@ export default function ServicesPage() {
       {/* SERVICES GRID */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+          <div className="services-cards-grid">
             {services.map((s, i) => (
               <ScrollReveal key={s.title} direction="up" delay={i % 2 === 0 ? 0 : 100} threshold={0.06}>
                 <div className="card" style={{ padding: "36px", height: "100%" }}>
@@ -115,12 +115,12 @@ export default function ServicesPage() {
         <div className="orb" style={{ width: 500, height: 500, top: "20%", right: "-5%", background: "rgba(0,201,167,0.04)", animationDelay: "-4s" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Why us</p>
               <h2 className="display-md">What makes OrvaIt different.</h2>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="col-3-grid">
             {[
               { icon: "🇱🇰", title: "Built for Sri Lanka",    desc: "We understand local business culture, regulatory environment, and the practical constraints that global vendors ignore." },
               { icon: "⚡",   title: "Fast delivery",         desc: "No 18-month implementation timelines. Our sprints deliver working software in weeks, with demos every step of the way." },
@@ -144,7 +144,7 @@ export default function ServicesPage() {
       {/* INDUSTRIES */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 96, alignItems: "center" }}>
+          <div className="split-grid" style={{ alignItems: "center" }}>
             <ScrollReveal direction="left">
               <div>
                 <p className="label" style={{ marginBottom: 18 }}>Industries</p>

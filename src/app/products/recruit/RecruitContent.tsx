@@ -133,7 +133,7 @@ export default function RecruitContent() {
         <div style={{ position: "absolute", width: 450, height: 450, bottom: -150, left: -80, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,80,200,0.06) 0%, transparent 70%)", filter: "blur(80px)", animation: "orbDrift 20s ease-in-out infinite reverse", zIndex: 0 }} />
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }}>
+          <div className="split-grid" style={{ alignItems: "center" }}>
 
             {/* left */}
             <div>
@@ -176,7 +176,7 @@ export default function RecruitContent() {
             </div>
 
             {/* right — floating product preview */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+            <div className="hero-preview-wrap">
               <div style={{ animation: "heroFloat 7s ease-in-out infinite", transformOrigin: "center center" }}>
                 <HeroPreviewPanel />
               </div>
@@ -203,12 +203,12 @@ export default function RecruitContent() {
       <section className="section-sm" style={{ background: "var(--navy)" }}>
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 52 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>The problem with traditional hiring</p>
               <h2 className="display-md">CVs lie. Interviews are slow.<br /><span className="teal">Gut feel is unreliable.</span></h2>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="col-3-grid">
             {[
               { icon: "📄", color: "#ef4444", title: "CVs over-promise", body: "Candidates optimise CVs for keywords, not reality. You're screening fiction, not capability." },
               { icon: "⏳", color: "#f59e0b", title: "Interviews take forever", body: "Hours of interviews per candidate. Scheduling, back-and-forth, and bias — before a single answer is tested." },
@@ -233,7 +233,7 @@ export default function RecruitContent() {
       <section className="section" style={{ background: "var(--navy-2)" }}>
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>How it works</p>
               <h2 className="display-md">From role creation to<br /><span className="teal">ranked shortlist.</span></h2>
             </div>
@@ -245,14 +245,14 @@ export default function RecruitContent() {
 
             {steps.map((s, i) => (
               <ScrollReveal key={s.step} direction={i % 2 === 0 ? "left" : "right"} delay={80} threshold={0.08}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 60px 1fr", gap: 0, alignItems: "center", marginBottom: 56, position: "relative", zIndex: 1 }}>
+                <div className="timeline-step-grid" style={{ marginBottom: 56, position: "relative", zIndex: 1 }}>
                   {/* left column */}
                   <div style={{ paddingRight: 48 }}>
                     {i % 2 === 0 ? <StepContent s={s} /> : <StepMockup index={i} />}
                   </div>
 
                   {/* center dot — always stays in column 2 */}
-                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  <div className="timeline-dot-col" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <div style={{ width: 44, height: 44, borderRadius: "50%", background: "rgba(0,201,167,0.12)", border: "1.5px solid rgba(0,201,167,0.4)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.72rem", color: "var(--teal)", letterSpacing: "0.04em", animation: "glowRing 4s ease-in-out infinite", animationDelay: `${i * 0.6}s` }}>
                       {s.step}
                     </div>
@@ -273,7 +273,7 @@ export default function RecruitContent() {
       <section className="section" style={{ background: "var(--navy)" }}>
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Everything included</p>
               <h2 className="display-md">Built for the whole hiring cycle.</h2>
             </div>
@@ -292,7 +292,7 @@ export default function RecruitContent() {
       <section className="section" style={{ background: "var(--navy-2)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", width: 600, height: 600, top: "50%", left: "50%", transform: "translate(-50%,-50%)", borderRadius: "50%", background: "radial-gradient(circle, rgba(0,201,167,0.04) 0%, transparent 70%)", filter: "blur(40px)", animation: "orbDrift 18s ease-in-out infinite", pointerEvents: "none" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+          <div className="split-grid" style={{ alignItems: "center" }}>
             <ScrollReveal direction="left" threshold={0.06}>
               <div>
                 <p className="label" style={{ marginBottom: 18 }}>Integrity monitoring</p>
@@ -320,7 +320,7 @@ export default function RecruitContent() {
       {/* ─── RECRUITMENT AI ─── */}
       <section className="section" style={{ background: "var(--navy)" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+          <div className="split-grid" style={{ alignItems: "center" }}>
             <ScrollReveal direction="left" threshold={0.06}>
               <AiChatMockup />
             </ScrollReveal>
@@ -350,13 +350,13 @@ export default function RecruitContent() {
       <section className="section" style={{ background: "var(--navy-2)" }}>
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Pricing</p>
               <h2 className="display-md" style={{ marginBottom: 14 }}>Simple, transparent pricing.</h2>
               <p style={{ color: "var(--gray-3)", fontWeight: 300 }}>All prices in LKR per month. Annual billing at 20% discount.</p>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, alignItems: "stretch" }}>
+          <div className="col-3-grid" style={{ alignItems: "stretch" }}>
             {pricingPlans.map((plan, i) => (
               <ScrollReveal key={plan.name} direction="scale" delay={i * 100} threshold={0.06}>
                 <PricingCard plan={plan} />

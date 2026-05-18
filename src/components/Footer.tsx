@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 56, marginBottom: 64 }}>
+        <div className="footer-grid">
 
           {/* Brand */}
           <div>

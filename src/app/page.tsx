@@ -21,8 +21,8 @@ export default function Home() {
         {/* Decorative vertical lines */}
         <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "linear-gradient(180deg, transparent 0%, rgba(0,201,167,0.08) 30%, rgba(0,201,167,0.08) 70%, transparent 100%)", pointerEvents: "none" }} />
 
-        <div className="container" style={{ position: "relative", zIndex: 1, width: "100%", paddingTop: 80, paddingBottom: 80 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="container hero-container" style={{ position: "relative", zIndex: 1, width: "100%" }}>
+          <div className="hero-grid">
 
             {/* ── LEFT: Copy ── */}
             <div>
@@ -51,7 +51,7 @@ export default function Home() {
               </div>
 
               {/* Inline micro-stats */}
-              <div className="fade-up-d4" style={{ marginTop: 56, display: "flex", gap: 32, alignItems: "center" }}>
+              <div className="fade-up-d4 hero-stats">
                 {[
                   { num: "40+", label: "Companies" },
                   { num: "3×",  label: "Faster hiring" },
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
 
             {/* ── RIGHT: Dashboard Mockup ── */}
-            <div className="fade-up-d2" style={{ position: "relative" }}>
+            <div className="fade-up-d2 hero-mockup-wrap" style={{ position: "relative" }}>
               {/* Main card */}
               <div style={{
                 background: "rgba(9,21,39,0.75)",
@@ -142,11 +142,11 @@ export default function Home() {
               </div>
 
               {/* Floating badges */}
-              <div style={{ position: "absolute", top: -22, right: -24, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(0,201,167,0.3)", borderRadius: 12, padding: "10px 16px", animation: "float 5s 2s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45), 0 0 20px rgba(0,201,167,0.1)" }}>
+              <div className="hero-badge" style={{ position: "absolute", top: -22, right: -24, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(0,201,167,0.3)", borderRadius: 12, padding: "10px 16px", animation: "float 5s 2s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45), 0 0 20px rgba(0,201,167,0.1)" }}>
                 <p style={{ fontSize: "0.62rem", color: "var(--gray-4)", marginBottom: 3 }}>Time saved</p>
                 <p style={{ fontSize: "1.3rem", fontWeight: 800, fontFamily: "var(--font-display)", color: "var(--teal)", letterSpacing: "-0.03em" }}>12h</p>
               </div>
-              <div style={{ position: "absolute", bottom: -20, left: -28, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "10px 16px", animation: "float 7s 1s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45)" }}>
+              <div className="hero-badge" style={{ position: "absolute", bottom: -20, left: -28, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "10px 16px", animation: "float 7s 1s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45)" }}>
                 <p style={{ fontSize: "0.62rem", color: "var(--gray-4)", marginBottom: 3 }}>Candidates assessed</p>
                 <p style={{ fontSize: "1.3rem", fontWeight: 800, fontFamily: "var(--font-display)", color: "var(--white)", letterSpacing: "-0.03em" }}>247</p>
               </div>
@@ -165,7 +165,7 @@ export default function Home() {
       <ScrollReveal direction="fade">
         <section className="section-xs" style={{ background: "var(--navy-2)", borderTop: "0.5px solid rgba(255,255,255,0.05)", borderBottom: "0.5px solid rgba(255,255,255,0.05)" }}>
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+            <div className="stats-grid">
               {[
                 { num: "40+",  label: "Companies served",    sub: "across Sri Lanka" },
                 { num: "3×",   label: "Faster hiring",       sub: "vs. manual screening" },
@@ -187,7 +187,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Our products</p>
               <h2 className="display-lg">
                 A suite built for<br /><span className="teal">real business problems.</span>
@@ -197,7 +197,7 @@ export default function Home() {
 
           {/* Flagship card */}
           <ScrollReveal direction="scale" threshold={0.08}>
-            <div style={{ background: "linear-gradient(135deg, rgba(0,201,167,0.09) 0%, rgba(0,201,167,0.03) 50%, rgba(0,70,180,0.04) 100%)", border: "0.5px solid rgba(0,201,167,0.22)", borderRadius: 28, padding: "56px 56px", marginBottom: 24, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center", position: "relative", overflow: "hidden" }}>
+            <div className="product-featured-grid" style={{ background: "linear-gradient(135deg, rgba(0,201,167,0.09) 0%, rgba(0,201,167,0.03) 50%, rgba(0,70,180,0.04) 100%)", border: "0.5px solid rgba(0,201,167,0.22)", borderRadius: 28, marginBottom: 24, position: "relative", overflow: "hidden" }}>
               {/* Subtle inner glow */}
               <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
 
@@ -229,7 +229,7 @@ export default function Home() {
           </ScrollReveal>
 
           {/* Products grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="products-grid">
             {[
               { name: "OrvaIt Insight", tag: "Analytics",  icon: <img src="https://i.pinimg.com/736x/5d/c8/63/5dc8637e74fd17dea829ea06541c2b72.jpg" alt="Insight" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "AI-powered business intelligence dashboards that surface what matters most, automatically.", status: "Available" },
               { name: "OrvaIt Flow",    tag: "Automation", icon: <img src="https://i.pinimg.com/736x/8a/35/fe/8a35fe04d6796bef41194d3a7f212e5e.jpg" alt="Flow" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "Intelligent workflow automation that eliminates repetitive tasks and connects your existing tools.", status: "Available" },
@@ -264,7 +264,7 @@ export default function Home() {
       {/* ── WHAT WE BUILD ──────────────────────────────────────────────────── */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 96, alignItems: "center" }}>
+          <div className="what-we-build-grid">
             <ScrollReveal direction="left">
               <div>
                 <p className="label" style={{ marginBottom: 18 }}>What we do</p>
@@ -280,7 +280,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div className="feature-cards-grid">
               {[
                 { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/52/0a/2f/520a2f3988f32dd89222a0949bcf4e27_720w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "AI & Machine Learning",  desc: "Custom models trained on your data and industry context." },
                 { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/b9/9a/68/b99a6859f4d5bb703e9b069f44f0353b_540w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Process Automation",     desc: "Replace manual workflows with intelligent automated pipelines." },
@@ -306,7 +306,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 80 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Process</p>
               <h2 className="display-lg">
                 From conversation<br />to <span className="teal">deployed solution.</span>
@@ -314,9 +314,9 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24, position: "relative" }}>
+          <div className="process-grid">
             {/* Connecting line */}
-            <div style={{ position: "absolute", top: 28, left: "12.5%", right: "12.5%", height: 1, background: "linear-gradient(90deg, var(--teal), rgba(0,201,167,0.15))", pointerEvents: "none" }} />
+            <div className="process-line" />
 
             {[
               { step: "01", title: "Discovery",       desc: "We learn your business, challenges, and goals in a focused 60-minute session." },

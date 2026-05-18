@@ -45,7 +45,7 @@ export default function AboutPage() {
       <section className="section" style={{ background: "var(--navy-2)", position: "relative", overflow: "hidden" }}>
         <div className="orb" style={{ width: 500, height: 500, bottom: "-10%", left: "-5%", background: "rgba(0,201,167,0.05)", animationDelay: "-5s" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 96, alignItems: "center" }}>
+          <div className="split-grid" style={{ alignItems: "center" }}>
             <ScrollReveal direction="left">
               <div>
                 <p className="label" style={{ marginBottom: 18 }}>Mission</p>
@@ -83,12 +83,12 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>How we work</p>
               <h2 className="display-md">Values we actually live by.</h2>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div className="col-3-grid">
             {values.map((v, i) => (
               <ScrollReveal key={v.title} direction="up" delay={i * 70} threshold={0.06}>
                 <div className="card" style={{ padding: "32px" }}>
@@ -106,7 +106,7 @@ export default function AboutPage() {
       <section className="section" style={{ background: "var(--navy-2)", position: "relative", overflow: "hidden" }}>
         <div className="orb" style={{ width: 400, height: 400, top: "30%", right: "-5%", background: "rgba(0,201,167,0.04)", animationDelay: "-7s" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 96, alignItems: "flex-start" }}>
+          <div className="split-grid" style={{ alignItems: "flex-start" }}>
             <ScrollReveal direction="left">
               <div>
                 <p className="label" style={{ marginBottom: 18 }}>Timeline</p>
@@ -138,12 +138,12 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 72 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>Team</p>
               <h2 className="display-md">The people building OrvaIt.</h2>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+          <div className="col-4-grid">
             {[
               { img: "/isurindu.png", name: "Isurindu Wickramasinghe", role: "Founder & Owner", focus: "Product vision & partnerships" },
               { img: "/ravidu.jpeg", name: "Ravidu Senavirathne", role: "CEO", focus: "AI architecture & engineering" },

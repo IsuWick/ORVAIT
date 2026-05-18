@@ -26,7 +26,7 @@ export default function ContactPage() {
       {/* MAIN CONTENT */}
       <section className="section">
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 80 }}>
+          <div className="contact-main-grid">
 
             {/* LEFT: Contact info */}
             <ScrollReveal direction="left" threshold={0.06}>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                 </p>
 
                 <form style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <div className="form-name-grid">
                     {[["First name", "text", "Kaveesha"], ["Last name", "text", "Perera"]].map(([label, type, ph]) => (
                       <div key={label}>
                         <label style={{ display: "block", fontSize: "0.7rem", color: "var(--gray-3)", marginBottom: 9, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>
@@ -158,12 +158,12 @@ export default function ContactPage() {
         <div className="orb" style={{ width: 400, height: 400, top: "20%", right: "-5%", background: "rgba(0,201,167,0.04)", animationDelay: "-4s" }} />
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <ScrollReveal direction="up">
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <div className="section-heading-mb">
               <p className="label" style={{ marginBottom: 16 }}>FAQ</p>
               <h2 className="display-md">Common questions.</h2>
             </div>
           </ScrollReveal>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, maxWidth: 960, margin: "0 auto" }}>
+          <div className="two-col-grid" style={{ maxWidth: 960, margin: "0 auto" }}>
             {[
               { q: "How quickly can you start?",             a: "For our SaaS products (Recruit, Insight, Flow), you can be up and running within the same day. Custom development projects typically kick off within 2 weeks of contract signing." },
               { q: "Do you offer free trials?",              a: "Yes — we offer a 14-day free trial for all our SaaS products. For custom projects, we offer a free discovery session with no obligation." },
