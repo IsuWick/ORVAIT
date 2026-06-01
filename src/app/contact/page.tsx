@@ -37,14 +37,20 @@ export default function ContactPage() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
                   {[
-                    { icon: "📧", label: "Email",    value: "hello@orvait.com",              sub: "We reply within 24 hours" },
-                    { icon: "💬", label: "WhatsApp", value: "+94 77 XXX XXXX",               sub: "Mon–Fri, 9am–6pm" },
-                    { icon: "📍", label: "Location", value: "Colombo, Sri Lanka",            sub: "Remote-first team" },
-                    { icon: "🔗", label: "LinkedIn", value: "linkedin.com/company/orvait",  sub: "Follow for updates" },
+                    { icon: "https://i.pinimg.com/736x/8e/dd/89/8edd899895fde05fe3c9d60499fde572.jpg",  label: "Email",    value: "hello@orvait.com",              sub: "We reply within 24 hours",  href: undefined },
+                    { icon: "https://i.pinimg.com/736x/52/16/49/5216499f3137ba1f69694d5b7b9f549a.jpg",  label: "WhatsApp", value: "+94 71 451 6562",               sub: "Mon–Fri, 9am–6pm",          href: "https://wa.me/94714516562" },
+                    { icon: "https://i.pinimg.com/1200x/00/ea/25/00ea25e3d2ef10d772de5228db4b7634.jpg", label: "Location", value: "Colombo, Sri Lanka",            sub: "Remote-first team",         href: undefined },
+                    { icon: "https://i.pinimg.com/1200x/55/ba/c3/55bac38329ee3852ef252c282caa8033.jpg", label: "LinkedIn", value: "linkedin.com/company/orvait",  sub: "Follow for updates",        href: "https://www.linkedin.com/company/orvait/" },
                   ].map(c => (
                     <div key={c.label} style={{ display: "flex", gap: 18, alignItems: "flex-start" }}>
-                      <div style={{ width: 46, height: 46, borderRadius: 12, background: "rgba(0,201,167,0.1)", border: "0.5px solid rgba(0,201,167,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", flexShrink: 0 }}>
-                        {c.icon}
+                      <div style={{ width: 46, height: 46, borderRadius: 12, background: "rgba(0,201,167,0.1)", border: "0.5px solid rgba(0,201,167,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, overflow: "hidden" }}>
+                        {c.href ? (
+                          <a href={c.href} target="_blank" rel="noopener noreferrer" style={{ display: "block", width: "100%", height: "100%" }}>
+                            <img src={c.icon} alt={c.label} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                          </a>
+                        ) : (
+                          <img src={c.icon} alt={c.label} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        )}
                       </div>
                       <div>
                         <p style={{ fontSize: "0.7rem", color: "var(--gray-4)", fontWeight: 600, marginBottom: 3, letterSpacing: "0.1em", textTransform: "uppercase" }}>{c.label}</p>
@@ -83,7 +89,7 @@ export default function ContactPage() {
 
                 <form style={{ display: "flex", flexDirection: "column", gap: 20 }}>
                   <div className="form-name-grid">
-                    {[["First name", "text", "Kaveesha"], ["Last name", "text", "Perera"]].map(([label, type, ph]) => (
+                    {[["First name", "text", "Pavan"], ["Last name", "text", "Perera"]].map(([label, type, ph]) => (
                       <div key={label}>
                         <label style={{ display: "block", fontSize: "0.7rem", color: "var(--gray-3)", marginBottom: 9, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>
                           {label}
