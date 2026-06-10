@@ -183,6 +183,20 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
+      {/* ── COLLABORATORS ──────────────────────────────────────────────────── */}
+      <ScrollReveal direction="fade">
+        <section className="section-xs">
+          <div className="container">
+            <p className="label" style={{ textAlign: "center", marginBottom: 32 }}>Trusted Collaborators</p>
+            <div className="collab-grid">
+              {["Emeraldbay Resorts", "Girlee Clouthings", "Redi Gedara Garments", "Lumora Cosmetics", "Yori Foods"].map(name => (
+                <div key={name} className="collab-logo">{name}</div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
       {/* ── FEATURED PRODUCT: RECRUIT ──────────────────────────────────────── */}
       <section className="section">
         <div className="container">
