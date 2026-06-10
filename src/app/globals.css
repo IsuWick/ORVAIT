@@ -442,7 +442,7 @@ h1, h2, h3, h4 {
 ══════════════════════════════════════════════════ */
 
 .page-hero {
-  padding: 164px 0 108px;
+  padding: 132px 0 108px;
   position: relative;
   overflow: hidden;
 }
@@ -607,7 +607,7 @@ footer {
 /* Hero vertical spacing — needs separate class because inline styles can't be
    overridden by media queries */
 .hero-container {
-  padding-top: 88px;
+  padding-top: 56px;
   padding-bottom: 88px;
 }
 

@@ -106,7 +106,7 @@ export default function Footer() {
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 14 }}>
           <p style={{ fontSize: "0.8rem", color: "var(--gray-4)" }}>
-            © 2025 OrvaIt (Pvt) Ltd. All rights reserved. Colombo, Sri Lanka.
+            © 2026 OrvaIt (Pvt) Ltd. All rights reserved. Colombo, Sri Lanka.
           </p>
           <div style={{ display: "flex", gap: 24 }}>
             {[["Privacy Policy", "/contact"], ["Terms of Service", "/contact"]].map(([label, href]) => (

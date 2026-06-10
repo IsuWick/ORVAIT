@@ -237,7 +237,7 @@ export default function RecruitContent() {
       <style>{ANIM_STYLES}</style>
 
       {/* ─── HERO ─── */}
-      <section style={{ padding: "150px 0 100px", position: "relative", overflow: "hidden", background: "var(--navy)" }}>
+      <section style={{ padding: "60px 0 100px", position: "relative", overflow: "hidden", background: "var(--navy)" }}>
         {/* bg grid */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(0,201,167,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,201,167,0.025) 1px,transparent 1px)", backgroundSize: "88px 88px", zIndex: 0 }} />
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 70% 80% at 10% 40%, rgba(0,201,167,0.08) 0%, transparent 55%), radial-gradient(ellipse 50% 60% at 85% 10%, rgba(0,80,200,0.07) 0%, transparent 50%)", zIndex: 0 }} />
