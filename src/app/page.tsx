@@ -223,7 +223,7 @@ export default function Home() {
 
               {/* Mockup panel / Image */}
               <div style={{ background: "rgba(6,12,25,0.65)", borderRadius: 16, border: "0.5px solid rgba(255,255,255,0.08)", padding: "8px", position: "relative", zIndex: 1, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                <img src="/recrutment.png" alt="OrvaIt Recruit Screenshot" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} />
+                <img src="/recrutement2.png" alt="OrvaIt Recruit Screenshot" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} />
               </div>
             </div>
           </ScrollReveal>
