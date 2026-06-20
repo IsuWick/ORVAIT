@@ -74,15 +74,6 @@ const jobs = [
         "@type": "Country",
         name: "LK",
       },
-      baseSalary: {
-        "@type": "MonetaryAmount",
-        currency: "LKR",
-        value: {
-          "@type": "QuantitativeValue",
-          value: 0,
-          unitText: "MONTH",
-        },
-      },
       responsibilities:
         "Generate and qualify leads, communicate with clients, close deals and bring projects to the company, maintain follow-up with prospects.",
       skills: "Sales, Lead Generation, Client Communication, Business Development",
