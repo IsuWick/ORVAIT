@@ -2,9 +2,40 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Careers — OrvaIT",
-  description: "Join the OrvaIT team. Explore open roles in sales, business development, and technology. Remote-friendly positions with performance-based compensation.",
-  keywords: "OrvaIT careers, jobs, sales intern, business development, remote jobs Sri Lanka",
+  title: "Careers at OrvaIT | Software Company Jobs in Colombo, Sri Lanka",
+  description:
+    "Join OrvaIT — a software development company based in Colombo, Sri Lanka. We're hiring for sales, marketing, and business development roles. Apply today and grow with a fast-moving tech team.",
+  keywords: [
+    "software company jobs Sri Lanka",
+    "tech jobs Colombo",
+    "IT jobs Sri Lanka",
+    "sales internship Colombo",
+    "business development jobs Sri Lanka",
+    "remote jobs Sri Lanka",
+    "software company careers Sri Lanka",
+    "OrvaIT jobs",
+    "marketing intern Colombo",
+    "IT company hiring Colombo Sri Lanka",
+    "software developer company Colombo",
+  ],
+  alternates: {
+    canonical: "https://orvait.com/careers",
+  },
+  openGraph: {
+    title: "Careers at OrvaIT | Software Company Jobs in Colombo, Sri Lanka",
+    description:
+      "Join OrvaIT — a software development company based in Colombo, Sri Lanka. Open roles in sales, marketing, and business development. Remote-friendly, performance-based.",
+    url: "https://orvait.com/careers",
+    siteName: "OrvaIT",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers at OrvaIT | Software Jobs in Colombo, Sri Lanka",
+    description:
+      "Explore open roles at OrvaIT, a fast-growing software company based in Colombo, Sri Lanka. Sales, marketing, and business development positions available.",
+  },
 };
 
 const jobs = [
@@ -50,6 +81,11 @@ const jobs = [
         name: "OrvaIT",
         sameAs: "https://orvait.com",
         logo: "https://orvait.com/favicon.png",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Colombo",
+          addressCountry: "LK",
+        },
       },
       jobLocation: [
         {
@@ -121,6 +157,11 @@ const jobs = [
         name: "OrvaIT",
         sameAs: "https://orvait.com",
         logo: "https://orvait.com/favicon.png",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Colombo",
+          addressCountry: "LK",
+        },
       },
       jobLocation: {
         "@type": "Place",
@@ -146,6 +187,83 @@ const jobs = [
 export default function CareersPage() {
   return (
     <>
+      {/* Organization schema — tells Google OrvaIT is a Colombo, Sri Lanka software company */}
+      <Script
+        id="schema-organization"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "OrvaIT",
+            url: "https://orvait.com",
+            logo: "https://orvait.com/favicon.png",
+            description:
+              "OrvaIT is a software development company based in Colombo, Sri Lanka. We build AI-powered software products, websites, mobile apps, and POS systems for modern businesses.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Colombo",
+              addressCountry: "LK",
+            },
+            foundingLocation: {
+              "@type": "Place",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Colombo",
+                addressCountry: "LK",
+              },
+            },
+            contactPoint: [
+              {
+                "@type": "ContactPoint",
+                email: "hello@orvait.com",
+                contactType: "customer service",
+              },
+              {
+                "@type": "ContactPoint",
+                email: "hr@orvait.com",
+                contactType: "human resources",
+              },
+            ],
+            sameAs: ["https://www.linkedin.com/company/orvait/"],
+            knowsAbout: [
+              "Software Development",
+              "Web Development",
+              "Mobile App Development",
+              "AI Solutions",
+              "POS Systems",
+              "Business Automation",
+            ],
+          }),
+        }}
+      />
+
+      {/* BreadcrumbList schema */}
+      <Script
+        id="schema-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://orvait.com",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Careers",
+                item: "https://orvait.com/careers",
+              },
+            ],
+          }),
+        }}
+      />
+
       {/* Google Jobs structured data */}
       {jobs.map((job) => (
         <Script

@@ -1,5 +1,43 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import ScrollReveal from "@/components/ScrollReveal";
+
+export const metadata: Metadata = {
+  title: "OrvaIT — Software Development Company in Colombo, Sri Lanka",
+  description:
+    "OrvaIT is a software development company in Colombo, Sri Lanka. We build websites, mobile apps, AI solutions, and POS systems. Serving Sri Lankan businesses with cutting-edge technology.",
+  keywords: [
+    "software company Sri Lanka",
+    "software development company Colombo",
+    "web development Sri Lanka",
+    "mobile app development Colombo",
+    "AI solutions Sri Lanka",
+    "POS system Sri Lanka",
+    "custom software development Sri Lanka",
+    "IT company Colombo",
+    "website development Sri Lanka",
+    "app development company Colombo",
+    "software company Colombo",
+    "tech company Sri Lanka",
+  ],
+  alternates: { canonical: "https://orvait.com" },
+  openGraph: {
+    title: "OrvaIT — Software Development Company in Colombo, Sri Lanka",
+    description:
+      "OrvaIT builds websites, mobile apps, AI solutions, and POS systems for Sri Lankan businesses. Based in Colombo. Book a free discovery call today.",
+    url: "https://orvait.com",
+    siteName: "OrvaIT",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OrvaIT — Software Development Company in Colombo, Sri Lanka",
+    description:
+      "Websites, mobile apps, AI solutions & POS systems built for Sri Lankan businesses. Based in Colombo.",
+  },
+};
 
 const ArrowIcon = () => (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -10,6 +48,75 @@ const ArrowIcon = () => (
 export default function Home() {
   return (
     <>
+      {/* LocalBusiness schema — signals Colombo, Sri Lanka software company to Google */}
+      <Script
+        id="schema-local-business"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://orvait.com/#organization",
+            name: "OrvaIT",
+            description:
+              "OrvaIT is a software development company based in Colombo, Sri Lanka. We build websites, mobile apps, AI-powered solutions, and POS systems for modern businesses.",
+            url: "https://orvait.com",
+            logo: "https://orvait.com/favicon.png",
+            telephone: "+94714516562",
+            email: "hello@orvait.com",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Colombo",
+              addressRegion: "Western Province",
+              addressCountry: "LK",
+            },
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: 6.9271,
+              longitude: 79.8612,
+            },
+            areaServed: [
+              { "@type": "Country", name: "Sri Lanka" },
+              { "@type": "Country", name: "United States" },
+            ],
+            serviceType: [
+              "Web Development",
+              "Mobile App Development",
+              "AI Solutions",
+              "POS System Development",
+              "Custom Software Development",
+              "Business Automation",
+            ],
+            priceRange: "$$",
+            openingHours: "Mo-Fr 09:00-18:00",
+            sameAs: [
+              "https://www.linkedin.com/company/orvait/",
+            ],
+          }),
+        }}
+      />
+      {/* WebSite schema — enables Google Sitelinks Search */}
+      <Script
+        id="schema-website"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "OrvaIT",
+            url: "https://orvait.com",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://orvait.com/?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
+
       {/* ── HERO ───────────────────────────────────────────────────────────── */}
       <section className="mesh-bg grid-bg" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
 

@@ -2,8 +2,36 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Contact — OrvaIt",
-  description: "Get in touch with OrvaIt. Book a free discovery call or send us a message.",
+  title: "Contact OrvaIT | Software Company in Colombo, Sri Lanka",
+  description:
+    "Get in touch with OrvaIT — a software development company in Colombo, Sri Lanka. Book a free discovery call, request a demo, or ask about custom web, mobile, or AI development. We reply within 24 hours.",
+  keywords: [
+    "contact software company Sri Lanka",
+    "hire software developers Colombo",
+    "software development quote Sri Lanka",
+    "web development inquiry Sri Lanka",
+    "mobile app development inquiry Colombo",
+    "AI development Sri Lanka contact",
+    "book discovery call software company",
+    "OrvaIT contact",
+    "software company phone Colombo",
+  ],
+  alternates: { canonical: "https://orvait.com/contact" },
+  openGraph: {
+    title: "Contact OrvaIT | Software Company in Colombo, Sri Lanka",
+    description:
+      "Book a free discovery call with OrvaIT. We build websites, mobile apps, AI tools, and POS systems for Sri Lankan businesses. Reply within 24 hours.",
+    url: "https://orvait.com/contact",
+    siteName: "OrvaIT",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact OrvaIT | Software Company in Colombo, Sri Lanka",
+    description:
+      "Book a free call with OrvaIT — Colombo-based software company. Web, mobile, AI & POS development. Reply within 24 hours.",
+  },
 };
 
 export default function ContactPage() {

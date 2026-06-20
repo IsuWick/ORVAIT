@@ -3,8 +3,36 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "About — OrvaIt",
-  description: "OrvaIt is an AI-first software company founded in Sri Lanka. Learn about our mission, values, and team.",
+  title: "About OrvaIT | Software Company Founded in Colombo, Sri Lanka",
+  description:
+    "OrvaIT is an AI-first software company founded in Colombo, Sri Lanka in 2025. We build intelligent software products for Sri Lankan businesses — websites, mobile apps, AI tools, and POS systems. Learn our story.",
+  keywords: [
+    "about OrvaIT",
+    "software company Colombo Sri Lanka",
+    "IT company founded Sri Lanka",
+    "AI company Colombo",
+    "tech startup Sri Lanka",
+    "software startup Colombo",
+    "Sri Lanka software company team",
+    "OrvaIT story",
+    "technology company Sri Lanka",
+  ],
+  alternates: { canonical: "https://orvait.com/about" },
+  openGraph: {
+    title: "About OrvaIT | Software Company Founded in Colombo, Sri Lanka",
+    description:
+      "OrvaIT was founded in Colombo, Sri Lanka in 2025 with one mission: make AI accessible to Sri Lankan businesses. Learn about our story, values, and team.",
+    url: "https://orvait.com/about",
+    siteName: "OrvaIT",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About OrvaIT | Software Company Founded in Colombo, Sri Lanka",
+    description:
+      "OrvaIT — an AI-first software company founded in Colombo, Sri Lanka. Building intelligent products for modern businesses.",
+  },
 };
 
 const values = [

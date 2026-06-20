@@ -3,8 +3,37 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Services — OrvaIt",
-  description: "AI consulting, custom software development, process automation, and data analytics services for Sri Lankan businesses.",
+  title: "Software Development Services in Sri Lanka | OrvaIT Colombo",
+  description:
+    "OrvaIT offers web development, mobile app development, AI consulting, custom software development, and business automation services in Sri Lanka. Based in Colombo — serving businesses island-wide.",
+  keywords: [
+    "software development services Sri Lanka",
+    "web development services Colombo",
+    "mobile app development Sri Lanka",
+    "AI consulting Sri Lanka",
+    "custom software development Colombo",
+    "business automation Sri Lanka",
+    "IT services Colombo",
+    "software outsourcing Sri Lanka",
+    "app development services Sri Lanka",
+    "digital transformation Colombo",
+  ],
+  alternates: { canonical: "https://orvait.com/services" },
+  openGraph: {
+    title: "Software Development Services in Sri Lanka | OrvaIT Colombo",
+    description:
+      "Web development, mobile apps, AI consulting, and business automation services from OrvaIT — a software company based in Colombo, Sri Lanka.",
+    url: "https://orvait.com/services",
+    siteName: "OrvaIT",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software Development Services in Sri Lanka | OrvaIT",
+    description:
+      "Web, mobile, AI, and automation services from OrvaIT — Sri Lanka's software development company based in Colombo.",
+  },
 };
 
 const services = [
