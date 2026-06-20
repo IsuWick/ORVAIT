@@ -26,6 +26,7 @@ export default function Nav() {
           <li><Link href="/products">Products</Link></li>
           <li><Link href="/services">Services</Link></li>
           <li><Link href="/about">About</Link></li>
+          <li><Link href="/careers">Careers</Link></li>
           <li><Link href="/contact">Contact</Link></li>
           <li>
             <Link href="/contact" className="nav-cta">
@@ -49,6 +50,7 @@ export default function Nav() {
         <Link href="/products" onClick={close}>Products</Link>
         <Link href="/services" onClick={close}>Services</Link>
         <Link href="/about" onClick={close}>About</Link>
+        <Link href="/careers" onClick={close}>Careers</Link>
         <Link href="/contact" onClick={close}>Contact</Link>
         <Link href="/contact" className="nav-cta" onClick={close}>Get started</Link>
       </div>
