@@ -67,7 +67,7 @@ const jobs = [
       "@type": "JobPosting",
       title: "Sales And Marketing Intern",
       description:
-        "A 6-month Remote Sales Internship designed for ambitious individuals who want real-world experience in Sales, Business Development, Client Acquisition, and Project Closing. As a Sales & Business Development Intern, your responsibility is to generate leads, communicate with clients, close deals, and bring projects to the company. For every successful project you close, you will receive an attractive commission. If you are serious about building your career in Sales, Marketing, or Business Development, this opportunity is for you.",
+        "<p>A 6-month Remote Sales Internship designed for ambitious individuals who want real-world experience in Sales, Business Development, Client Acquisition, and Project Closing.</p><p>As a Sales &amp; Business Development Intern, your responsibility is to generate leads, communicate with clients, close deals, and bring projects to the company. For every successful project you close, you will receive an attractive commission.</p><p><strong>Responsibilities:</strong></p><ul><li>Generate and qualify leads through outreach and networking</li><li>Communicate with potential clients to understand their needs</li><li>Close deals and bring projects to the OrvaIT team</li><li>Maintain follow-up communications with prospects</li></ul><p><strong>Requirements:</strong></p><ul><li>Ambitious and self-motivated attitude</li><li>Strong communication and interpersonal skills</li><li>Interest in sales, marketing, or business development</li><li>Ability to work independently in a remote setting</li><li>Based in or around Colombo or Kurunegala</li></ul>",
       identifier: {
         "@type": "PropertyValue",
         name: "OrvaIT",
@@ -93,6 +93,7 @@ const jobs = [
           address: {
             "@type": "PostalAddress",
             addressLocality: "Colombo",
+            addressRegion: "Western Province",
             addressCountry: "LK",
           },
         },
@@ -101,6 +102,7 @@ const jobs = [
           address: {
             "@type": "PostalAddress",
             addressLocality: "Kurunegala",
+            addressRegion: "North Western Province",
             addressCountry: "LK",
           },
         },
@@ -110,6 +112,16 @@ const jobs = [
         "@type": "Country",
         name: "LK",
       },
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "LKR",
+        value: {
+          "@type": "QuantitativeValue",
+          value: 0,
+          unitText: "MONTH",
+        },
+      },
+      directApply: true,
       responsibilities:
         "Generate and qualify leads, communicate with clients, close deals and bring projects to the company, maintain follow-up with prospects.",
       skills: "Sales, Lead Generation, Client Communication, Business Development",
@@ -143,7 +155,7 @@ const jobs = [
       "@type": "JobPosting",
       title: "Business Development Partner – Software",
       description:
-        "OrvaIT is a software development company. We build websites, mobile apps, and POS (point-of-sale) systems for businesses. We're growing our presence in the US market and are looking for a US-based Business Development Partner to help connect us with clients who need these services. Your job is to find US businesses that need a website, mobile app, or POS system, introduce them to OrvaIT, and help bring the project to us. You focus on finding and connecting with clients. Our team handles the technical work, project scoping, and delivery.",
+        "<p>OrvaIT is a software development company. We build websites, mobile apps, and POS (point-of-sale) systems for businesses. We're growing our presence in the US market and are looking for a US-based Business Development Partner to help connect us with clients who need these services.</p><p>Your job is to find US businesses that need a website, mobile app, or POS system, introduce them to OrvaIT, and help bring the project to us. You focus on finding and connecting with clients. Our team handles the technical work, project scoping, and delivery.</p><p><strong>Responsibilities:</strong></p><ul><li>Identify US-based businesses, startups, restaurants, retailers, and entrepreneurs needing web, app, or POS development</li><li>Reach out and start professional conversations to understand client needs</li><li>Connect interested clients with the OrvaIT team</li><li>Keep in touch with prospects and help move opportunities forward</li></ul><p><strong>Requirements:</strong></p><ul><li>Based in the United States with a good understanding of the local market</li><li>Comfortable reaching out to businesses and building relationships</li><li>An existing network of US business contacts is a strong advantage</li><li>Good communication skills and a self-motivated approach</li><li>No technical background needed — our team handles all development</li></ul>",
       identifier: {
         "@type": "PropertyValue",
         name: "OrvaIT",
@@ -175,11 +187,21 @@ const jobs = [
         "@type": "Country",
         name: "US",
       },
+      baseSalary: {
+        "@type": "MonetaryAmount",
+        currency: "USD",
+        value: {
+          "@type": "QuantitativeValue",
+          value: 0,
+          unitText: "MONTH",
+        },
+      },
+      directApply: true,
       responsibilities:
         "Identify US-based businesses needing web, app, or POS development. Reach out and start professional conversations, connect interested clients with the OrvaIT team, and help move opportunities forward.",
       skills:
         "Business Development, Client Acquisition, Networking, Sales, US Market Knowledge",
-      industryIdentifier: "IT System Custom Software Development",
+      industry: "IT System Custom Software Development",
     },
   },
 ];
