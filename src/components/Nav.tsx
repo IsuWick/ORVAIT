@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+// Routes that render on a white background and need the light nav variant.
+const LIGHT_ROUTES = ["/"];
+
 export default function Nav() {
+  const pathname = usePathname();
+  const light = LIGHT_ROUTES.includes(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -16,7 +22,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={scrolled ? "nav-scrolled" : ""}>
+      <nav className={[scrolled && "nav-scrolled", light && "nav-light"].filter(Boolean).join(" ")}>
         <Link href="/" className="nav-logo" onClick={close}>
           <span className="nav-logo-dot" />
           ORVA IT
@@ -46,7 +52,7 @@ export default function Nav() {
         </button>
       </nav>
 
-      <div className={`nav-mobile${mobileOpen ? " open" : ""}`}>
+      <div className={`nav-mobile${light ? " nav-mobile-light" : ""}${mobileOpen ? " open" : ""}`}>
         <Link href="/products" onClick={close}>Products</Link>
         <Link href="/services" onClick={close}>Services</Link>
         <Link href="/about" onClick={close}>About</Link>

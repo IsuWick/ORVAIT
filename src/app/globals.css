@@ -556,6 +556,46 @@ nav.nav-scrolled {
   transform: scale(1.03) translateY(-1px) !important;
 }
 
+/* Light variant — applied by <Nav /> only on light-themed routes (the homepage) */
+nav.nav-light {
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+nav.nav-light.nav-scrolled {
+  background: rgba(255,255,255,0.94);
+  border-bottom-color: #e8ecf1;
+  box-shadow: 0 1px 12px rgba(16,24,40,0.04);
+}
+nav.nav-light .nav-logo            { color: #0b1526; }
+nav.nav-light .nav-links a         { color: #475467; }
+nav.nav-light .nav-links a:hover   { color: #0b1526; }
+nav.nav-light .nav-hamburger span  { background: #0b1526; }
+nav.nav-light .nav-cta {
+  background: #0b1526 !important;
+  color: #ffffff !important;
+  border-color: #0b1526 !important;
+}
+nav.nav-light .nav-cta:hover {
+  background: #16263f !important;
+  color: #ffffff !important;
+  border-color: #16263f !important;
+  box-shadow: 0 6px 18px rgba(11,21,38,0.2) !important;
+}
+
+.nav-mobile.nav-mobile-light {
+  background: rgba(255,255,255,0.98);
+  border-bottom-color: #e8ecf1;
+  box-shadow: 0 16px 32px rgba(16,24,40,0.08);
+}
+.nav-mobile.nav-mobile-light a       { color: #475467; border-bottom-color: #eef1f5; }
+.nav-mobile.nav-mobile-light a:hover { color: #0b1526; }
+.nav-mobile.nav-mobile-light .nav-cta {
+  background: #0b1526 !important;
+  color: #ffffff !important;
+  border-color: #0b1526 !important;
+}
+
 /* ══════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════ */

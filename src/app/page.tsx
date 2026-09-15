@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import ScrollReveal from "@/components/ScrollReveal";
+import "./home.css";
 
 export const metadata: Metadata = {
   title: "OrvaIT — Software Development Company in Colombo, Sri Lanka",
@@ -39,11 +42,113 @@ export const metadata: Metadata = {
   },
 };
 
+/* ── Icons ───────────────────────────────────────────────────────────────── */
+
 const ArrowIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M5 12h14M12 5l7 7-7 7" />
   </svg>
 );
+
+const Icon = ({ d, size = 22, strokeWidth = 1.6 }: { d: string; size?: number; strokeWidth?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d={d} />
+  </svg>
+);
+
+const ICONS = {
+  check:        "M20 6 9 17l-5-5",
+  arrowUpRight: "M7 17 17 7M8 7h9v9",
+  clock:        "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3 2",
+  web:          "M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 9h18M6.5 6.5h.01M9 6.5h.01",
+  mobile:       "M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM11 18h2",
+  ai:           "M12 3l1.8 4.9L19 9.7l-5.2 1.8L12 16.5l-1.8-5L5 9.7l5.2-1.8zM18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z",
+  pos:          "M5 3h14v18l-2.3-1.5L14.3 21 12 19.5 9.7 21l-2.4-1.5L5 21zM9 8h6M9 12h6M9 16h3",
+  code:         "m16 18 6-6-6-6M8 6l-6 6 6 6M14 4l-4 16",
+  bolt:         "M13 2 3 14h9l-1 8 10-12h-9l1-8z",
+  chart:        "M3 3v18h18M7 14l4-4 3 3 6-6",
+  flow:         "M5 3h4v4H5zM15 17h4v4h-4zM7 7v4a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3",
+  shield:       "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4",
+  pin:          "M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21zM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z",
+  gauge:        "M12 14l4-4M3.3 17a10 10 0 1 1 17.4 0",
+  team:         "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
+  support:      "M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6",
+  mail:         "M3 5h18v14H3zM3 6l9 7 9-7",
+  phone:        "M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.9 2z",
+};
+
+/* ── Content ─────────────────────────────────────────────────────────────── */
+
+const heroKpis = [
+  { label: "Applied",     value: "247", trend: "+12%" },
+  { label: "Screened",    value: "89",  trend: "+8%" },
+  { label: "Shortlisted", value: "14",  trend: "Top 6%" },
+];
+
+const heroCandidates = [
+  { name: "Kavinda Perera",  score: 92, status: "Shortlisted", ok: true },
+  { name: "Dilani Silva",    score: 88, status: "Shortlisted", ok: true },
+  { name: "Roshan Fernando", score: 71, status: "In review",   ok: false },
+];
+
+const collaborators = ["Emeraldbay Resorts", "Girlee Clouthings", "Redi Gedara Garments", "Lumora Cosmetics", "Yori Foods"];
+
+const services = [
+  { icon: ICONS.web,    title: "Web Development",        desc: "Fast, search-optimised websites and web platforms designed to turn visitors into customers.",       tags: ["Corporate sites", "E-commerce", "Web apps"] },
+  { icon: ICONS.mobile, title: "Mobile App Development", desc: "Polished iOS and Android apps that your customers enjoy using — and keep coming back to.",            tags: ["iOS", "Android", "Cross-platform"] },
+  { icon: ICONS.ai,     title: "AI Solutions",           desc: "Custom models, assistants and intelligent features trained on your data and industry context.",       tags: ["AI assistants", "Machine learning", "AI consulting"] },
+  { icon: ICONS.pos,    title: "POS Systems",            desc: "Point-of-sale and inventory systems built for retail, restaurants and hospitality businesses.",       tags: ["Retail", "Restaurants", "Inventory"] },
+  { icon: ICONS.code,   title: "Custom Software",        desc: "Bespoke platforms built around your workflow — fully owned by you and engineered to scale.",           tags: ["ERP & CRM", "Integrations", "APIs"] },
+  { icon: ICONS.bolt,   title: "Business Automation",    desc: "Automate time-consuming workflows, from invoicing to onboarding, and cut manual effort by 60–90%.", tags: ["Workflows", "Data & BI", "Reporting"] },
+];
+
+const recruitFeatures = ["Timed, proctored assessments", "Custom questions per role", "Real-time integrity monitoring", "Instant auto-scored reports"];
+
+const products = [
+  { icon: ICONS.chart,  name: "OrvaIt Insight", tag: "Analytics",  desc: "AI-powered business intelligence dashboards that surface what matters most, automatically.",        available: true },
+  { icon: ICONS.flow,   name: "OrvaIt Flow",    tag: "Automation", desc: "Intelligent workflow automation that eliminates repetitive tasks and connects your existing tools.", available: true },
+  { icon: ICONS.shield, name: "OrvaIt Guard",   tag: "Security",   desc: "AI-driven cybersecurity monitoring for small and mid-size enterprises in Sri Lanka.",                 available: false },
+];
+
+const values = [
+  { icon: ICONS.pin,     title: "Built for Sri Lanka",   desc: "We understand local business culture, regulations and the practical constraints global vendors overlook." },
+  { icon: ICONS.gauge,   title: "Delivered in weeks",    desc: "Short sprints and weekly demos mean working software fast — not 18-month implementation timelines." },
+  { icon: ICONS.team,    title: "AI-native team",        desc: "Every engineer has production AI experience. We don't outsource or resell — we build it ourselves." },
+  { icon: ICONS.support, title: "Partners after launch", desc: "Ongoing support, model retraining and new features come standard. We don't disappear after go-live." },
+];
+
+const stats = [
+  { num: "40", suffix: "+",  label: "Companies served",    sub: "across Sri Lanka" },
+  { num: "3",  suffix: "×",  label: "Faster hiring",       sub: "vs. manual screening" },
+  { num: "98", suffix: "%",  label: "Client satisfaction", sub: "average NPS score" },
+  { num: "24", suffix: "/7", label: "Platform uptime",     sub: "SLA guaranteed" },
+];
+
+const steps = [
+  { step: "01", title: "Discovery",      desc: "We learn your business, challenges and goals in a focused working session.",          meta: "60-minute session" },
+  { step: "02", title: "Architecture",   desc: "We design the solution and map a clear technical roadmap, timeline and quote.",        meta: "Clear scope & pricing" },
+  { step: "03", title: "Build",          desc: "Rapid, iterative development with your feedback built in at every stage.",             meta: "Weekly demos" },
+  { step: "04", title: "Launch & scale", desc: "Seamless deployment followed by monitoring, support and continuous improvement.",       meta: "Ongoing support" },
+];
+
+/* ── Section heading ─────────────────────────────────────────────────────── */
+
+function SectionHead({ eyebrow, title, lead, link }: { eyebrow: string; title: ReactNode; lead: string; link: { href: string; label: string } }) {
+  return (
+    <ScrollReveal direction="up">
+      <div className="home-head">
+        <div>
+          <p className="home-eyebrow">{eyebrow}</p>
+          <h2 className="home-h2">{title}</h2>
+        </div>
+        <div>
+          <p className="home-lead">{lead}</p>
+          <Link href={link.href} className="home-link">{link.label} <ArrowIcon /></Link>
+        </div>
+      </div>
+    </ScrollReveal>
+  );
+}
 
 export default function Home() {
   return (
@@ -117,397 +222,401 @@ export default function Home() {
         }}
       />
 
-      {/* ── HERO ───────────────────────────────────────────────────────────── */}
-      <section className="mesh-bg grid-bg" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
+      <div className="home">
 
-        {/* Animated orbs */}
-        <div className="orb" style={{ width: 800, height: 800, top: -300, right: -250, background: "rgba(0,201,167,0.07)", animationDelay: "0s" }} />
-        <div className="orb" style={{ width: 600, height: 600, bottom: -200, left: -150, background: "rgba(0,70,180,0.06)", animationDelay: "-5s", animationDuration: "16s" }} />
-        <div className="orb" style={{ width: 320, height: 320, top: "42%", left: "42%", background: "rgba(0,201,167,0.05)", animationDelay: "-9s", animationDuration: "18s" }} />
+        {/* ── HERO ───────────────────────────────────────────────────────────── */}
+        <section className="home-hero">
+          <div className="home-hero-bg" aria-hidden="true" />
 
-        {/* Decorative vertical lines */}
-        <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "linear-gradient(180deg, transparent 0%, rgba(0,201,167,0.08) 30%, rgba(0,201,167,0.08) 70%, transparent 100%)", pointerEvents: "none" }} />
-
-        <div className="container hero-container" style={{ position: "relative", zIndex: 1, width: "100%" }}>
-          <div className="hero-grid">
-
-            {/* ── LEFT: Copy ── */}
-            <div>
-              <div className="pill fade-up" style={{ marginBottom: 36 }}>
-                <span className="pill-dot" />
-                AI-Powered Software · Colombo, Sri Lanka
+          <div className="container home-hero-inner">
+            <div className="home-hero-copy">
+              <div className="home-badge fade-up">
+                <span className="home-badge-tag"><span className="home-dot" />Colombo, Sri Lanka</span>
+                AI-powered software company
               </div>
 
-              <h1 className="display-xl fade-up-d1">
-                Intelligence<br />
-                <span className="teal">Built</span> Into<br />
-                Every Layer.
+              <h1 className="home-h1 fade-up-d1">
+                Software with intelligence built into <span className="home-mark">every layer.</span>
               </h1>
 
-              <p className="fade-up-d2" style={{ fontSize: "1.12rem", color: "var(--gray-2)", maxWidth: 480, marginTop: 32, marginBottom: 48, lineHeight: 1.82, fontWeight: 300 }}>
-                OrvaIt builds AI-native software products and enterprise solutions that help Sri Lankan businesses hire smarter, operate faster, and grow with confidence.
+              <p className="home-lead fade-up-d2">
+                OrvaIT designs and builds websites, mobile apps, AI solutions and POS systems that help Sri Lankan businesses hire smarter, operate faster and grow with confidence.
               </p>
 
-              <div className="fade-up-d3" style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-                <Link href="/products" className="btn-primary">
-                  Explore products <ArrowIcon />
+              <div className="home-actions fade-up-d3">
+                <Link href="/contact" className="home-btn home-btn-primary">
+                  Book a free consultation <ArrowIcon />
                 </Link>
-                <Link href="/contact" className="btn-outline">
-                  Talk to us
+                <Link href="/products" className="home-btn home-btn-secondary">
+                  Explore products
                 </Link>
               </div>
 
-              {/* Inline micro-stats */}
-              <div className="fade-up-d4 hero-stats">
-                {[
-                  { num: "40+", label: "Companies" },
-                  { num: "3×",  label: "Faster hiring" },
-                  { num: "98%", label: "Satisfaction" },
-                ].map((s, i) => (
-                  <div key={s.num} style={{ display: "flex", alignItems: "center", gap: 32 }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontFamily: "var(--font-display)", fontSize: "1.9rem", fontWeight: 800, color: "var(--teal)", letterSpacing: "-0.05em", lineHeight: 1 }}>{s.num}</div>
-                      <p style={{ fontSize: "0.7rem", color: "var(--gray-4)", letterSpacing: "0.1em", marginTop: 5, textTransform: "uppercase" }}>{s.label}</p>
-                    </div>
-                    {i < 2 && <div style={{ width: 1, height: 36, background: "rgba(255,255,255,0.08)" }} />}
-                  </div>
+              <ul className="home-assurances fade-up-d4">
+                {["Free 30-minute discovery call", "Transparent LKR pricing", "Local team in Colombo"].map(a => (
+                  <li key={a}>
+                    <span className="home-check"><Icon d={ICONS.check} size={11} strokeWidth={3} /></span>
+                    {a}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            {/* ── RIGHT: Dashboard Mockup ── */}
-            <div className="fade-up-d2 hero-mockup-wrap" style={{ position: "relative" }}>
-              {/* Main card */}
-              <div style={{
-                background: "rgba(9,21,39,0.75)",
-                backdropFilter: "blur(24px)",
-                border: "0.5px solid rgba(255,255,255,0.1)",
-                borderRadius: 20,
-                padding: 28,
-                fontFamily: "monospace",
-                animation: "float 6s ease-in-out infinite",
-                boxShadow: "0 48px 100px rgba(0,0,0,0.55), 0 0 0 0.5px rgba(0,201,167,0.1), 0 0 60px rgba(0,201,167,0.04)",
-              }}>
-                {/* Window chrome */}
-                <div style={{ display: "flex", gap: 6, marginBottom: 22, alignItems: "center" }}>
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#ff5f57" }} />
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#febc2e" }} />
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#28c840" }} />
-                  <div style={{ flex: 1, height: 22, borderRadius: 6, background: "rgba(255,255,255,0.04)", marginLeft: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <span style={{ fontSize: "0.62rem", color: "var(--gray-4)", letterSpacing: "0.05em" }}>OrvaIt Recruit — Dashboard</span>
-                  </div>
+            {/* Product preview — decorative */}
+            <div className="home-visual fade-up-d2" aria-hidden="true">
+              <div className="home-window">
+                <div className="home-window-bar">
+                  <i /><i /><i />
+                  <div className="home-window-url">app.orvait.com/recruit</div>
                 </div>
 
-                {/* Mini stats */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10, marginBottom: 18 }}>
-                  {[
-                    { label: "Applied", value: "247", trend: "+12%" },
-                    { label: "Screened", value: "89",  trend: "+8%"  },
-                    { label: "Shortlisted", value: "14",  trend: "67%↑" },
-                  ].map(s => (
-                    <div key={s.label} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 10, padding: "12px 14px" }}>
-                      <p style={{ fontSize: "0.6rem", color: "var(--gray-4)", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</p>
-                      <p style={{ fontSize: "1.3rem", fontWeight: 700, fontFamily: "var(--font-display)", color: "var(--white)", letterSpacing: "-0.02em" }}>{s.value}</p>
-                      <p style={{ fontSize: "0.6rem", color: "var(--teal)", marginTop: 3 }}>{s.trend}</p>
+                <div className="home-window-body">
+                  <div className="home-window-head">
+                    <div>
+                      <p className="home-window-title">Hiring pipeline</p>
+                      <p className="home-window-sub">Software Engineer · Colombo</p>
                     </div>
-                  ))}
-                </div>
+                    <span className="home-live"><span className="home-dot" />Live</span>
+                  </div>
 
-                {/* Candidate rows */}
-                <div style={{ fontSize: "0.78rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", padding: "0 0 8px", borderBottom: "0.5px solid rgba(255,255,255,0.06)", marginBottom: 6 }}>
-                    {["Candidate", "Score", "Status"].map(h => (
-                      <span key={h} style={{ color: "var(--gray-4)", fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>{h}</span>
+                  <div className="home-kpis">
+                    {heroKpis.map(k => (
+                      <div key={k.label} className="home-kpi">
+                        <p className="home-kpi-label">{k.label}</p>
+                        <p className="home-kpi-value">{k.value}</p>
+                        <p className="home-kpi-trend">{k.trend}</p>
+                      </div>
                     ))}
                   </div>
-                  {[
-                    { name: "Kavinda Perera",    score: "18/20", status: "Shortlisted", color: "#00c9a7" },
-                    { name: "Dilani Silva",       score: "15/20", status: "Shortlisted", color: "#00c9a7" },
-                    { name: "Roshan Fernando",    score: "11/20", status: "Review",      color: "#febc2e" },
-                    { name: "Amara Jayasinghe",   score: "6/20",  status: "Declined",    color: "#ff5f57" },
-                  ].map(c => (
-                    <div key={c.name} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "9px 0", borderBottom: "0.5px solid rgba(255,255,255,0.04)" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <div style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(0,201,167,0.14)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.58rem", color: "var(--teal)", fontWeight: 700, flexShrink: 0 }}>
-                          {c.name.split(" ").map(n => n[0]).join("")}
-                        </div>
-                        <span style={{ color: "var(--gray-2)", fontSize: "0.76rem" }}>{c.name}</span>
-                      </div>
-                      <span style={{ color: "var(--white)", fontWeight: 600 }}>{c.score}</span>
-                      <span style={{ color: c.color, fontSize: "0.72rem", fontWeight: 500 }}>{c.status}</span>
-                    </div>
-                  ))}
-                </div>
 
-                <div style={{ marginTop: 14, background: "rgba(0,201,167,0.08)", border: "0.5px solid rgba(0,201,167,0.2)", borderRadius: 8, padding: "10px 14px", display: "flex", gap: 10, alignItems: "center" }}>
-                  <span style={{ color: "var(--teal)", fontSize: "1.1rem" }}>✓</span>
-                  <div>
-                    <p style={{ color: "var(--teal)", fontSize: "0.74rem", fontWeight: 600 }}>AI Analysis Complete</p>
-                    <p style={{ color: "var(--gray-3)", fontSize: "0.66rem", marginTop: 2 }}>Saved ~12 hours of manual screening</p>
+                  <div className="home-chart">
+                    <div className="home-chart-head"><span>Applications</span><span>Last 30 days</span></div>
+                    <svg viewBox="0 0 300 72" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="home-chart-fill" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#00c9a7" stopOpacity="0.28" />
+                          <stop offset="100%" stopColor="#00c9a7" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M0 58 C30 54 45 38 75 42 S120 28 150 32 S200 14 225 19 S270 8 300 6 V72 H0Z" fill="url(#home-chart-fill)" />
+                      <path d="M0 58 C30 54 45 38 75 42 S120 28 150 32 S200 14 225 19 S270 8 300 6" fill="none" stroke="#00c9a7" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                    </svg>
                   </div>
+
+                  <ul className="home-candidates">
+                    {heroCandidates.map(c => (
+                      <li key={c.name}>
+                        <span className="home-avatar">{c.name.split(" ").map(n => n[0]).join("")}</span>
+                        <span className="home-candidate-name">{c.name}</span>
+                        <span className="home-score"><span style={{ width: `${c.score}%` }} /></span>
+                        <span className="home-score-num">{c.score}</span>
+                        <span className={`home-status ${c.ok ? "home-status-ok" : "home-status-wait"}`}>{c.status}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              {/* Floating badges */}
-              <div className="hero-badge" style={{ position: "absolute", top: -22, right: -24, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(0,201,167,0.3)", borderRadius: 12, padding: "10px 16px", animation: "float 5s 2s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45), 0 0 20px rgba(0,201,167,0.1)" }}>
-                <p style={{ fontSize: "0.62rem", color: "var(--gray-4)", marginBottom: 3 }}>Time saved</p>
-                <p style={{ fontSize: "1.3rem", fontWeight: 800, fontFamily: "var(--font-display)", color: "var(--teal)", letterSpacing: "-0.03em" }}>12h</p>
-              </div>
-              <div className="hero-badge" style={{ position: "absolute", bottom: -20, left: -28, background: "rgba(6,12,25,0.92)", backdropFilter: "blur(16px)", border: "0.5px solid rgba(255,255,255,0.1)", borderRadius: 12, padding: "10px 16px", animation: "float 7s 1s ease-in-out infinite", boxShadow: "0 8px 32px rgba(0,0,0,0.45)" }}>
-                <p style={{ fontSize: "0.62rem", color: "var(--gray-4)", marginBottom: 3 }}>Candidates assessed</p>
-                <p style={{ fontSize: "1.3rem", fontWeight: 800, fontFamily: "var(--font-display)", color: "var(--white)", letterSpacing: "-0.03em" }}>247</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 10, opacity: 0.5 }}>
-          <div style={{ width: 1, height: 52, background: "linear-gradient(180deg, transparent, rgba(0,201,167,0.9))", animation: "shimmerLine 2s ease-in-out infinite" }} />
-          <p style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "var(--gray-4)", textTransform: "uppercase" }}>Scroll</p>
-        </div>
-      </section>
-
-      {/* ── STATS BAR ──────────────────────────────────────────────────────── */}
-      <ScrollReveal direction="fade">
-        <section className="section-xs" style={{ background: "var(--navy-2)", borderTop: "0.5px solid rgba(255,255,255,0.05)", borderBottom: "0.5px solid rgba(255,255,255,0.05)" }}>
-          <div className="container">
-            <div className="stats-grid">
-              {[
-                { num: "40+",  label: "Companies served",    sub: "across Sri Lanka" },
-                { num: "3×",   label: "Faster hiring",       sub: "vs. manual screening" },
-                { num: "98%",  label: "Client satisfaction", sub: "average NPS score" },
-                { num: "24/7", label: "Platform uptime",     sub: "SLA guaranteed" },
-              ].map((s, i) => (
-                <div key={s.num} style={{ textAlign: "center", padding: "32px 20px", borderRight: i < 3 ? "0.5px solid rgba(255,255,255,0.07)" : "none" }}>
-                  <div className="stat-num">{s.num}</div>
-                  <p style={{ color: "var(--white)", fontSize: "0.88rem", fontWeight: 500, marginTop: 10 }}>{s.label}</p>
-                  <p style={{ color: "var(--gray-4)", fontSize: "0.72rem", marginTop: 4 }}>{s.sub}</p>
+              <div className="home-float home-float-a">
+                <span className="home-float-icon"><Icon d={ICONS.check} size={16} strokeWidth={2.6} /></span>
+                <div>
+                  <p className="home-float-label">AI screening complete</p>
+                  <p className="home-float-value">12 hours saved</p>
                 </div>
-              ))}
+              </div>
+              <div className="home-float home-float-b">
+                <p className="home-float-value home-float-big">3×</p>
+                <p className="home-float-label">faster time<br />to shortlist</p>
+              </div>
             </div>
           </div>
         </section>
-      </ScrollReveal>
 
-      {/* ── COLLABORATORS ──────────────────────────────────────────────────── */}
-      <ScrollReveal direction="fade">
-        <section className="section-xs">
+        {/* ── TRUSTED BY ─────────────────────────────────────────────────────── */}
+        <ScrollReveal direction="fade">
+          <section className="home-trust" aria-label="Trusted collaborators">
+            <div className="container home-trust-inner">
+              <p className="home-trust-label">Trusted by growing businesses across Sri Lanka</p>
+              <ul className="home-trust-logos">
+                {collaborators.map(name => <li key={name}>{name}</li>)}
+              </ul>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* ── SERVICES ───────────────────────────────────────────────────────── */}
+        <section className="home-section" id="services">
           <div className="container">
-            <p className="label" style={{ textAlign: "center", marginBottom: 32 }}>Trusted Collaborators</p>
-            <div className="collab-grid">
-              {["Emeraldbay Resorts", "Girlee Clouthings", "Redi Gedara Garments", "Lumora Cosmetics", "Yori Foods"].map(name => (
-                <div key={name} className="collab-logo">{name}</div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </ScrollReveal>
+            <SectionHead
+              eyebrow="What we do"
+              title={<>End-to-end software, <span className="home-mark">engineered for growth.</span></>}
+              lead="From a first website to an AI-powered operations platform — one experienced team takes you from idea to launch and beyond."
+              link={{ href: "/services", label: "Explore all services" }}
+            />
 
-      {/* ── FEATURED PRODUCT: RECRUIT ──────────────────────────────────────── */}
-      <section className="section">
-        <div className="container">
-          <ScrollReveal direction="up">
-            <div className="section-heading-mb">
-              <p className="label" style={{ marginBottom: 16 }}>Our products</p>
-              <h2 className="display-lg">
-                A suite built for<br /><span className="teal">real business problems.</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          {/* Flagship card */}
-          <ScrollReveal direction="scale" threshold={0.08}>
-            <div className="product-featured-grid" style={{ background: "linear-gradient(135deg, rgba(0,201,167,0.09) 0%, rgba(0,201,167,0.03) 50%, rgba(0,70,180,0.04) 100%)", border: "0.5px solid rgba(0,201,167,0.22)", borderRadius: 28, marginBottom: 24, position: "relative", overflow: "hidden" }}>
-              {/* Subtle inner glow */}
-              <div style={{ position: "absolute", top: -100, right: -100, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(0,201,167,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-
-              <div style={{ position: "relative", zIndex: 1 }}>
-                <div className="chip" style={{ marginBottom: 20 }}>Flagship product</div>
-                <h3 className="display-md" style={{ marginBottom: 18 }}>
-                  OrvaIt <span className="teal">Recruit</span>
-                </h3>
-                <p style={{ color: "var(--gray-2)", lineHeight: 1.82, marginBottom: 32, fontWeight: 300, fontSize: "1.02rem" }}>
-                  The AI-powered candidate assessment platform built for Sri Lankan companies. Screen hundreds of applicants with timed, proctored assessments — and get instant scored reports before your first interview.
-                </p>
-                <ul style={{ listStyle: "none", marginBottom: 36, display: "flex", flexDirection: "column", gap: 12 }}>
-                  {["Timed, proctored assessments", "Custom questions per role", "Real-time integrity monitoring", "Instant auto-scored reports"].map(f => (
-                    <li key={f} style={{ display: "flex", alignItems: "center", gap: 12, fontSize: "0.9rem", color: "var(--gray-2)" }}>
-                      <span style={{ color: "var(--teal)", fontWeight: 700, fontSize: "1rem" }}>✓</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/products/recruit" className="btn-primary">
-                  Learn more <ArrowIcon />
-                </Link>
-              </div>
-
-              {/* Mockup panel / Image */}
-              <div style={{ background: "rgba(6,12,25,0.65)", borderRadius: 16, border: "0.5px solid rgba(255,255,255,0.08)", padding: "8px", position: "relative", zIndex: 1, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                <img src="/recrutement2.png" alt="OrvaIt Recruit Screenshot" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Products grid */}
-          <div className="products-grid">
-            {[
-              { name: "OrvaIt Insight", tag: "Analytics",  icon: <img src="https://i.pinimg.com/736x/5d/c8/63/5dc8637e74fd17dea829ea06541c2b72.jpg" alt="Insight" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "AI-powered business intelligence dashboards that surface what matters most, automatically.", status: "Available" },
-              { name: "OrvaIt Flow",    tag: "Automation", icon: <img src="https://i.pinimg.com/736x/8a/35/fe/8a35fe04d6796bef41194d3a7f212e5e.jpg" alt="Flow" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "Intelligent workflow automation that eliminates repetitive tasks and connects your existing tools.", status: "Available" },
-              { name: "OrvaIt Guard",   tag: "Security",   icon: <img src="https://i.pinimg.com/736x/2e/b6/f5/2eb6f5411b093a0c1294738e0e34b706.jpg" alt="Guard" style={{ width: "36px", height: "36px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, desc: "AI-driven cybersecurity monitoring for small and mid-size enterprises in Sri Lanka.", status: "Coming soon" },
-            ].map((p, i) => (
-              <ScrollReveal key={p.name} direction="up" delay={i * 100} threshold={0.08}>
-                <div className="card" style={{ height: "100%" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 18 }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>{p.icon}</div>
-                    <span style={{ fontSize: "0.68rem", color: p.status === "Coming soon" ? "var(--gray-4)" : "var(--teal)", border: `0.5px solid ${p.status === "Coming soon" ? "rgba(255,255,255,0.08)" : "rgba(0,201,167,0.3)"}`, padding: "3px 10px", borderRadius: 100, fontWeight: 500 }}>
-                      {p.status}
+            <ScrollReveal direction="up" threshold={0.05}>
+              <div className="home-services">
+                {services.map(s => (
+                  <Link key={s.title} href="/services" className="home-service">
+                    <span className="home-icon"><Icon d={s.icon} /></span>
+                    <span className="home-service-arrow"><Icon d={ICONS.arrowUpRight} size={18} /></span>
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                    <span className="home-tags">
+                      {s.tags.map(t => <span key={t}>{t}</span>)}
                     </span>
-                  </div>
-                  <div className="chip" style={{ marginBottom: 12 }}>{p.tag}</div>
-                  <h4 style={{ fontFamily: "var(--font-display)", fontSize: "1.1rem", fontWeight: 700, marginBottom: 12 }}>{p.name}</h4>
-                  <p style={{ fontSize: "0.86rem", color: "var(--gray-3)", lineHeight: 1.75 }}>{p.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal direction="fade" delay={200}>
-            <div style={{ textAlign: "center", marginTop: 40 }}>
-              <Link href="/products" className="btn-outline">View all products <ArrowIcon /></Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <div className="divider container" />
-
-      {/* ── WHAT WE BUILD ──────────────────────────────────────────────────── */}
-      <section className="section">
-        <div className="container">
-          <div className="what-we-build-grid">
-            <ScrollReveal direction="left">
-              <div>
-                <p className="label" style={{ marginBottom: 18 }}>What we do</p>
-                <h2 className="display-lg" style={{ marginBottom: 28 }}>
-                  We don&apos;t build software.<br />We build <span className="teal">systems that think.</span>
-                </h2>
-                <p style={{ color: "var(--gray-2)", lineHeight: 1.85, marginBottom: 36, fontWeight: 300, fontSize: "1.02rem" }}>
-                  OrvaIt is an AI-first technology company. Every product we ship has intelligence woven into its core — not bolted on as an afterthought. We combine deep technical expertise with an understanding of how Sri Lankan businesses actually work.
-                </p>
-                <Link href="/services" className="btn-outline">
-                  Our services <ArrowIcon />
-                </Link>
+                  </Link>
+                ))}
               </div>
             </ScrollReveal>
 
-            <div className="feature-cards-grid">
-              {[
-                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/52/0a/2f/520a2f3988f32dd89222a0949bcf4e27_720w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "AI & Machine Learning",  desc: "Custom models trained on your data and industry context." },
-                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/b9/9a/68/b99a6859f4d5bb703e9b069f44f0353b_540w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Process Automation",     desc: "Replace manual workflows with intelligent automated pipelines." },
-                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/0c/24/44/0c2444073f97ca37892ec777b6b7a1b5_360w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Data Intelligence",      desc: "Transform raw data into strategic business decisions." },
-                { icon: <video src="https://v1.pinimg.com/videos/iht/expMp4/10/78/6f/10786f0093b83b318439da657c90b98a_540w.mp4" autoPlay loop muted playsInline style={{ width: "64px", height: "64px", borderRadius: "8px", objectFit: "cover", display: "block" }} />, title: "Secure by Design",       desc: "Enterprise-grade security built into every product layer." },
-              ].map((f, i) => (
-                <ScrollReveal key={f.title} direction="scale" delay={i * 80} threshold={0.08}>
-                  <div className="feature-card" style={{ padding: "28px" }}>
-                    <div style={{ fontSize: "28px", marginBottom: 14 }}>{f.icon}</div>
-                    <h4 style={{ fontFamily: "var(--font-display)", fontSize: "0.95rem", fontWeight: 700, marginBottom: 8 }}>{f.title}</h4>
-                    <p style={{ fontSize: "0.82rem", color: "var(--gray-3)", lineHeight: 1.7 }}>{f.desc}</p>
+            <ScrollReveal direction="up" delay={100}>
+              <Link href="/services/hospitality-tourism" className="home-spotlight">
+                <span className="home-spotlight-tag">Industry spotlight</span>
+                <span className="home-spotlight-text">
+                  <strong>Hospitality &amp; Tourism</strong> — specialised digital packages for hotels, villas and tour operators.
+                </span>
+                <span className="home-spotlight-cta">Explore packages <ArrowIcon /></span>
+              </Link>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ── PRODUCTS ───────────────────────────────────────────────────────── */}
+        <section className="home-section home-section-soft" id="products">
+          <div className="container">
+            <SectionHead
+              eyebrow="Our products"
+              title={<>A suite built for <span className="home-mark">real business problems.</span></>}
+              lead="Ready-made platforms you can deploy in days, not months — each one built with AI at its core."
+              link={{ href: "/products", label: "View all products" }}
+            />
+
+            <ScrollReveal direction="up" threshold={0.08}>
+              <article className="home-flagship">
+                <div className="home-flagship-body">
+                  <span className="home-chip">Flagship product</span>
+                  <h3 className="home-h3">OrvaIt <span className="home-accent">Recruit</span></h3>
+                  <p className="home-flagship-desc">
+                    The AI-powered candidate assessment platform built for Sri Lankan companies. Screen hundreds of applicants with timed, proctored assessments — and get instant scored reports before your first interview.
+                  </p>
+
+                  <ul className="home-feature-list">
+                    {recruitFeatures.map(f => (
+                      <li key={f}>
+                        <span className="home-check"><Icon d={ICONS.check} size={11} strokeWidth={3} /></span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="home-flagship-metrics">
+                    <div>
+                      <p className="home-metric-num">~12h</p>
+                      <p className="home-metric-label">saved per hiring round</p>
+                    </div>
+                    <div>
+                      <p className="home-metric-num">3×</p>
+                      <p className="home-metric-label">faster shortlisting</p>
+                    </div>
                   </div>
+
+                  <div className="home-flagship-actions">
+                    <Link href="/products/recruit" className="home-btn home-btn-primary">
+                      Learn more <ArrowIcon />
+                    </Link>
+                    <Link href="/contact" className="home-link">Book a demo <ArrowIcon /></Link>
+                  </div>
+                </div>
+
+                <div className="home-flagship-media">
+                  <Image
+                    src="/recrutement2.png"
+                    alt="OrvaIt Recruit AI-powered recruitment platform dashboard"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 640px"
+                    className="home-flagship-img"
+                  />
+                </div>
+              </article>
+            </ScrollReveal>
+
+            <div className="home-products">
+              {products.map((p, i) => (
+                <ScrollReveal key={p.name} direction="up" delay={i * 100} threshold={0.08}>
+                  <Link href="/products" className="home-product">
+                    <div className="home-product-top">
+                      <span className="home-icon"><Icon d={p.icon} /></span>
+                      <span className={`home-status ${p.available ? "home-status-ok" : "home-status-muted"}`}>
+                        {p.available ? "Available" : "Coming soon"}
+                      </span>
+                    </div>
+                    <p className="home-product-tag">{p.tag}</p>
+                    <h3>{p.name}</h3>
+                    <p className="home-product-desc">{p.desc}</p>
+                  </Link>
                 </ScrollReveal>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="divider container" />
-
-      {/* ── HOW IT WORKS ───────────────────────────────────────────────────── */}
-      <section className="section">
-        <div className="container">
-          <ScrollReveal direction="up">
-            <div className="section-heading-mb">
-              <p className="label" style={{ marginBottom: 16 }}>Process</p>
-              <h2 className="display-lg">
-                From conversation<br />to <span className="teal">deployed solution.</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="process-grid">
-            {/* Connecting line */}
-            <div className="process-line" />
-
-            {[
-              { step: "01", title: "Discovery",       desc: "We learn your business, challenges, and goals in a focused 60-minute session." },
-              { step: "02", title: "Architecture",    desc: "Our team designs the AI-powered solution and maps the full technical roadmap." },
-              { step: "03", title: "Build",           desc: "Rapid iterative development with weekly demos and your feedback at every stage." },
-              { step: "04", title: "Deploy & Scale",  desc: "Seamless deployment with ongoing monitoring, support, and AI model improvement." },
-            ].map((s, i) => (
-              <ScrollReveal key={s.step} direction="up" delay={i * 120} threshold={0.08}>
-                <div style={{ textAlign: "center" }}>
-                  <div style={{ width: 56, height: 56, borderRadius: "50%", background: "var(--teal)", color: "var(--navy)", fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.88rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", boxShadow: "0 0 0 8px rgba(0,201,167,0.12), 0 8px 24px rgba(0,201,167,0.3)" }}>
-                    {s.step}
-                  </div>
-                  <h4 style={{ fontFamily: "var(--font-display)", fontWeight: 700, marginBottom: 12, fontSize: "1.05rem" }}>{s.title}</h4>
-                  <p style={{ fontSize: "0.85rem", color: "var(--gray-3)", lineHeight: 1.75 }}>{s.desc}</p>
+        {/* ── WHY ORVAIT ─────────────────────────────────────────────────────── */}
+        <section className="home-section" id="why-orvait">
+          <div className="container">
+            <div className="home-why">
+              <ScrollReveal direction="up">
+                <div className="home-why-intro">
+                  <p className="home-eyebrow">Why OrvaIT</p>
+                  <h2 className="home-h2">
+                    A technology partner that <span className="home-mark">understands your business.</span>
+                  </h2>
+                  <p className="home-lead">
+                    We combine deep technical expertise with a practical understanding of how Sri Lankan businesses actually operate — so what we build gets used, not shelved.
+                  </p>
+                  <Link href="/about" className="home-link">About OrvaIT <ArrowIcon /></Link>
                 </div>
               </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── TESTIMONIAL ────────────────────────────────────────────────────── */}
-      <section className="section-sm" style={{ background: "var(--navy-2)", position: "relative", overflow: "hidden" }}>
-        <div className="orb" style={{ width: 500, height: 500, top: "50%", left: "50%", transform: "translate(-50%,-50%)", background: "rgba(0,201,167,0.04)", animationDelay: "-3s" }} />
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <ScrollReveal direction="scale">
-            <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
-              <div style={{ fontSize: "4rem", color: "var(--teal)", opacity: 0.2, fontFamily: "Georgia, serif", lineHeight: 0.8, marginBottom: 24 }}>&ldquo;</div>
-              <p style={{ fontSize: "1.45rem", fontFamily: "var(--font-display)", fontWeight: 600, lineHeight: 1.55, marginBottom: 32, color: "var(--white)" }}>
-                OrvaIt helped us screen 60 candidates in a single weekend. We saved two weeks of interviews and found our best engineer yet.
-              </p>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
-                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "rgba(0,201,167,0.14)", border: "1px solid rgba(0,201,167,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--teal)" }}>
-                  DS
-                </div>
-                <div style={{ textAlign: "left" }}>
-                  <p style={{ fontWeight: 600, fontSize: "0.92rem" }}>Dinesh Samarawickrama</p>
-                  <p style={{ color: "var(--gray-3)", fontSize: "0.82rem", marginTop: 2 }}>CTO, TechBridge Solutions · Colombo</p>
-                </div>
+              <div className="home-values">
+                {values.map((v, i) => (
+                  <ScrollReveal key={v.title} direction="up" delay={i * 80} threshold={0.08}>
+                    <div className="home-value">
+                      <span className="home-value-icon"><Icon d={v.icon} /></span>
+                      <h3>{v.title}</h3>
+                      <p>{v.desc}</p>
+                    </div>
+                  </ScrollReveal>
+                ))}
               </div>
             </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
-      {/* ── CTA BAND ───────────────────────────────────────────────────────── */}
-      <section className="section" style={{ position: "relative", overflow: "hidden" }}>
-        <div className="orb" style={{ width: 700, height: 500, top: "50%", left: "50%", transform: "translate(-50%,-50%)", background: "rgba(0,201,167,0.06)", animationDelay: "-6s" }} />
-        <div className="orb" style={{ width: 300, height: 300, top: 0, right: 0, background: "rgba(0,80,200,0.05)", animationDelay: "-2s", animationDuration: "14s" }} />
+            <ScrollReveal direction="fade">
+              <div className="home-stats">
+                {stats.map(s => (
+                  <div key={s.label} className="home-stat">
+                    <p className="home-stat-num">{s.num}<span>{s.suffix}</span></p>
+                    <p className="home-stat-label">{s.label}</p>
+                    <p className="home-stat-sub">{s.sub}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
 
-        <div className="container" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-          <ScrollReveal direction="up">
-            <p className="label" style={{ marginBottom: 20 }}>Ready to start?</p>
-            <h2 className="display-lg" style={{ marginBottom: 28 }}>
-              Let&apos;s build something<br /><span className="teal">extraordinary together.</span>
-            </h2>
-            <p style={{ color: "var(--gray-2)", fontWeight: 300, marginBottom: 48, fontSize: "1.08rem", maxWidth: 480, margin: "0 auto 48px" }}>
-              Book a free 30-minute discovery call. No commitment, no pressure.
-            </p>
-            <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact" className="btn-primary" style={{ animation: "glowPulse 3s ease-in-out infinite" }}>
-                Book a free call <ArrowIcon />
-              </Link>
-              <Link href="/products" className="btn-outline">
-                See our products
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+        {/* ── PROCESS ────────────────────────────────────────────────────────── */}
+        <section className="home-section home-section-soft" id="process">
+          <div className="container">
+            <ScrollReveal direction="up">
+              <div className="home-head-center">
+                <p className="home-eyebrow">How we work</p>
+                <h2 className="home-h2">
+                  From first conversation to <span className="home-mark">deployed solution.</span>
+                </h2>
+                <p className="home-lead">
+                  A clear, collaborative process — so you always know what is being built, when, and why.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ol className="home-steps">
+              {steps.map((s, i) => (
+                <li key={s.step}>
+                  <ScrollReveal direction="up" delay={i * 110} threshold={0.08} style={{ height: "100%" }}>
+                    <div className="home-step">
+                      <div className="home-step-top">
+                        <span className="home-step-num">{s.step}</span>
+                        <span className="home-step-line" />
+                      </div>
+                      <h3>{s.title}</h3>
+                      <p>{s.desc}</p>
+                      <p className="home-step-meta"><Icon d={ICONS.clock} size={14} /> {s.meta}</p>
+                    </div>
+                  </ScrollReveal>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ── TESTIMONIAL ────────────────────────────────────────────────────── */}
+        <section className="home-section">
+          <div className="container">
+            <ScrollReveal direction="up">
+              <figure className="home-quote">
+                <svg className="home-quote-mark" width="42" height="32" viewBox="0 0 41 32" aria-hidden="true">
+                  <path fill="currentColor" d="M0 32V19.2C0 8.5 5.6 1.9 16.8 0l1.6 4.8C12.3 6.5 9.3 10 8.8 15.2H16V32H0zm22.4 0V19.2C22.4 8.5 28 1.9 39.2 0l1.6 4.8c-6.1 1.7-9.1 5.2-9.6 10.4h7.2V32H22.4z" />
+                </svg>
+                <blockquote>
+                  <p>
+                    OrvaIt helped us screen 60 candidates in a single weekend. We saved two weeks of interviews and found our best engineer yet.
+                  </p>
+                </blockquote>
+                <figcaption>
+                  <span className="home-avatar home-avatar-lg">DS</span>
+                  <span>
+                    <span className="home-quote-name">Dinesh Samarawickrama</span>
+                    <span className="home-quote-role">CTO, TechBridge Solutions · Colombo</span>
+                  </span>
+                </figcaption>
+              </figure>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ── CTA ────────────────────────────────────────────────────────────── */}
+        <section className="home-cta-wrap">
+          <div className="container">
+            <ScrollReveal direction="up">
+              <div className="home-cta">
+                <div>
+                  <p className="home-eyebrow">Ready to start?</p>
+                  <h2 className="home-h2">
+                    Let&apos;s build something <span className="home-mark">extraordinary together.</span>
+                  </h2>
+                  <p className="home-cta-text">
+                    Book a free 30-minute discovery call. No commitment, no pressure — just honest advice on what will move your business forward.
+                  </p>
+                  <div className="home-actions">
+                    <Link href="/contact" className="home-btn home-btn-teal">
+                      Book a free call <ArrowIcon />
+                    </Link>
+                    <Link href="/products" className="home-btn home-btn-ghost">
+                      See our products
+                    </Link>
+                  </div>
+                </div>
+
+                <ul className="home-cta-contact">
+                  <li>
+                    <span className="home-cta-icon"><Icon d={ICONS.mail} size={20} /></span>
+                    <span>
+                      <small>Email us</small>
+                      <a href="mailto:hello@orvait.com">hello@orvait.com</a>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="home-cta-icon"><Icon d={ICONS.phone} size={20} /></span>
+                    <span>
+                      <small>Call us</small>
+                      <a href="tel:+94714516562">+94 71 451 6562</a>
+                    </span>
+                  </li>
+                  <li>
+                    <span className="home-cta-icon"><Icon d={ICONS.pin} size={20} /></span>
+                    <span>
+                      <small>Visit us</small>
+                      <strong>Colombo, Sri Lanka · Mon–Fri, 9am–6pm</strong>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+      </div>
     </>
   );
 }
