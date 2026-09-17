@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import ScrollReveal from "@/components/ScrollReveal";
+import ClientStories, { type ClientStory } from "@/components/ClientStories";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ const ICONS = {
   check:        "M20 6 9 17l-5-5",
   arrowUpRight: "M7 17 17 7M8 7h9v9",
   clock:        "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 7v5l3 2",
+  cursor:       "m3 3 7.4 17.8 2.2-7.4 7.4-2.2z",
   web:          "M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 9h18M6.5 6.5h.01M9 6.5h.01",
   mobile:       "M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2zM11 18h2",
   ai:           "M12 3l1.8 4.9L19 9.7l-5.2 1.8L12 16.5l-1.8-5L5 9.7l5.2-1.8zM18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z",
@@ -91,7 +93,103 @@ const heroCandidates = [
   { name: "Roshan Fernando", score: 71, status: "In review",   ok: false },
 ];
 
-const collaborators = ["Emeraldbay Resorts", "Girlee Clouthings", "Redi Gedara Garments", "Lumora Cosmetics", "Yori Foods"];
+const tickerItems = [
+  { tag: "New",       text: "Hospitality & Tourism packages for hotels, villas and tour operators" },
+  { tag: "Spotlight", text: "OTA channel management, AI reception, direct booking engines and smart dining" },
+  { tag: "Sri Lanka", text: "From boutique villas in Galle to safari camps in Yala" },
+];
+
+/* ───────────────────────────────────────────────────────────────────────────
+   CLIENT STORIES
+   Emeraldbay Resorts is the real story. The other four are still placeholders:
+   every line starting with "REPLACE" is filler, NOT a real client result.
+   These are real companies, so publishing that text as-is would put invented
+   claims about them on the live site. Fill each one in — or delete it from
+   this list until you have the story.
+─────────────────────────────────────────────────────────────────────────── */
+const clientStories: ClientStory[] = [
+  {
+    name: "Emeraldbay Resorts",
+    monogram: "EB",
+    logo: "/emeraldbaylogo.png",
+    industry: "Hospitality · Resort",
+    href: "https://emeraldbayresorts.com",
+    summary: "One website build that grew into a three-project partnership.",
+    steps: [
+      {
+        label: "Official website",
+        badge: "Live",
+        status: "live",
+        desc: "Their first requirement — a proper online home for the resort. Designed, built and launched, with a few final pieces still coming from their team.",
+      },
+      {
+        label: "QR smart ordering",
+        badge: "Phase 2",
+        status: "phase",
+        desc: "Guests scan a code to order from their room or anywhere in the restaurant areas.",
+      },
+      {
+        label: "POS system",
+        badge: "Ongoing",
+        status: "ongoing",
+        desc: "Bringing ordering, restaurant and front-desk operations into one system. In development now.",
+      },
+    ],
+    outcome: "They told us we understood their requirement exactly, and that the site has helped grow their sales. Every project since has come back to us.",
+    services: ["Web development", "QR ordering", "POS system"],
+  },
+  {
+    name: "Girlee Clouthings",
+    monogram: "GC",
+    logo: "/girleelogo.jpeg",
+    industry: "REPLACE — industry and city",
+    summary: "REPLACE — one line on how the work started.",
+    steps: [
+      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
+      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+    ],
+    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
+    services: ["REPLACE — service", "REPLACE — service"],
+  },
+  {
+    name: "Redi Gedara Garments",
+    monogram: "RG",
+    logo: "/redigedaralogo.jpeg",
+    industry: "REPLACE — industry and city",
+    summary: "REPLACE — one line on how the work started.",
+    steps: [
+      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
+      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+    ],
+    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
+    services: ["REPLACE — service", "REPLACE — service"],
+  },
+  {
+    name: "Lumora Cosmetics",
+    monogram: "LC",
+    logo: "/lumoralogo.jpeg",
+    industry: "REPLACE — industry and city",
+    summary: "REPLACE — one line on how the work started.",
+    steps: [
+      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
+      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+    ],
+    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
+    services: ["REPLACE — service", "REPLACE — service"],
+  },
+  {
+    name: "Yori Foods",
+    monogram: "YF",
+    industry: "REPLACE — industry and city",
+    summary: "REPLACE — one line on how the work started.",
+    steps: [
+      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
+      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+    ],
+    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
+    services: ["REPLACE — service", "REPLACE — service"],
+  },
+];
 
 const services = [
   { icon: ICONS.web,    title: "Web Development",        desc: "Fast, search-optimised websites and web platforms designed to turn visitors into customers.",       tags: ["Corporate sites", "E-commerce", "Web apps"] },
@@ -224,7 +322,33 @@ export default function Home() {
 
       <div className="home">
 
-        {/* ── HERO ───────────────────────────────────────────────────────────── */}
+        {/* ── ANNOUNCEMENT TICKER ────────────────────────────────────────────── */}
+        <Link
+          href="/services/hospitality-tourism"
+          className="home-ticker"
+          aria-label="New: Hospitality & Tourism packages for hotels, villas and tour operators. Explore packages"
+        >
+          {/* Two identical groups so the loop at -50% is seamless */}
+          <span className="home-ticker-track" aria-hidden="true">
+            {[0, 1].map(group => (
+              <span key={group} className="home-ticker-group">
+                {[0, 1].map(rep => (
+                  <Fragment key={rep}>
+                    {tickerItems.map(t => (
+                      <span key={t.tag} className="home-ticker-item">
+                        <span className="home-ticker-tag">{t.tag}</span>
+                        {t.text}
+                      </span>
+                    ))}
+                    <span className="home-ticker-item home-ticker-cta">Explore packages <ArrowIcon /></span>
+                  </Fragment>
+                ))}
+              </span>
+            ))}
+          </span>
+        </Link>
+
+        {/* ── HERO───────────────────────────────────────────────────────────── */}
         <section className="home-hero">
           <div className="home-hero-bg" aria-hidden="true" />
 
@@ -332,14 +456,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── TRUSTED BY ─────────────────────────────────────────────────────── */}
+        {/* ── CLIENT SUCCESS STORIES ─────────────────────────────────────────── */}
         <ScrollReveal direction="fade">
-          <section className="home-trust" aria-label="Trusted collaborators">
-            <div className="container home-trust-inner">
-              <p className="home-trust-label">Trusted by growing businesses across Sri Lanka</p>
-              <ul className="home-trust-logos">
-                {collaborators.map(name => <li key={name}>{name}</li>)}
-              </ul>
+          <section className="home-clients" aria-label="Client success stories">
+            <div className="container">
+              <div className="home-clients-head">
+                <p className="home-eyebrow">Client success stories</p>
+                <h2 className="home-clients-title">Trusted by growing businesses across Sri Lanka</h2>
+                <p className="home-clients-hint">
+                  <Icon d={ICONS.cursor} size={15} />
+                  Hover a client to see their story — tap on mobile
+                </p>
+              </div>
+              <ClientStories stories={clientStories} />
             </div>
           </section>
         </ScrollReveal>
