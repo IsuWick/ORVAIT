@@ -101,11 +101,9 @@ const tickerItems = [
 
 /* ───────────────────────────────────────────────────────────────────────────
    CLIENT STORIES
-   Emeraldbay Resorts is the real story. The other four are still placeholders:
-   every line starting with "REPLACE" is filler, NOT a real client result.
-   These are real companies, so publishing that text as-is would put invented
-   claims about them on the live site. Fill each one in — or delete it from
-   this list until you have the story.
+   All five are real engagements, written from what the team described. Keep it
+   that way: these are real companies, so only add claims (especially numbers)
+   that the client would stand behind.
 ─────────────────────────────────────────────────────────────────────────── */
 const clientStories: ClientStory[] = [
   {
@@ -142,52 +140,110 @@ const clientStories: ClientStory[] = [
     name: "Girlee Clouthings",
     monogram: "GC",
     logo: "/girleelogo.jpeg",
-    industry: "REPLACE — industry and city",
-    summary: "REPLACE — one line on how the work started.",
+    industry: "Fashion · Clothing brand",
+    summary: "Branding on social media first — now their website is being built.",
     steps: [
-      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
-      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+      {
+        label: "Social media branding",
+        badge: "Live",
+        status: "live",
+        desc: "Their first requirement: get the brand in front of people on Facebook and social channels. We built a steady, consistent brand presence and kept it running.",
+      },
+      {
+        label: "Official website",
+        badge: "Ongoing",
+        status: "ongoing",
+        desc: "With the brand established, they asked us to build their website. In development now.",
+      },
     ],
-    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
-    services: ["REPLACE — service", "REPLACE — service"],
+    outcome: "The branding work settled their identity and brought in sales — and that success is why the website came to us next.",
+    services: ["Social media branding", "Web development"],
   },
   {
     name: "Redi Gedara Garments",
     monogram: "RG",
     logo: "/redigedaralogo.jpeg",
-    industry: "REPLACE — industry and city",
-    summary: "REPLACE — one line on how the work started.",
+    industry: "Garment manufacturing",
+    summary: "A complete employee and inventory platform — hardware and software.",
     steps: [
-      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
-      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+      {
+        label: "Fingerprint attendance",
+        badge: "Live",
+        status: "live",
+        desc: "Their requirement was employee management, starting with attendance. We delivered both sides: the fingerprint scanners on the floor and the software behind them.",
+      },
+      {
+        label: "Employee management",
+        badge: "Live",
+        status: "live",
+        desc: "A full system for staff records and the daily people work that used to be done by hand.",
+      },
+      {
+        label: "Inventory management",
+        badge: "Live",
+        status: "live",
+        desc: "Stock and inventory tracking, running through the same platform as the rest.",
+      },
     ],
-    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
-    services: ["REPLACE — service", "REPLACE — service"],
+    outcome: "Attendance, staff and stock now run through one system — saving the team a lot of time and a lot of money.",
+    services: ["Hardware + software", "Employee management", "Inventory system"],
   },
   {
     name: "Lumora Cosmetics",
     monogram: "LC",
     logo: "/lumoralogo.jpeg",
-    industry: "REPLACE — industry and city",
-    summary: "REPLACE — one line on how the work started.",
+    industry: "Cosmetics · Startup",
+    summary: "A mobile POS with a portable bill printer — and a partner as they grow.",
     steps: [
-      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
-      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+      {
+        label: "Mobile POS app",
+        badge: "Live",
+        status: "live",
+        desc: "Their requirement was a point-of-sale they could carry. We built a mobile POS app they can sell from anywhere.",
+      },
+      {
+        label: "Portable bill printer",
+        badge: "Live",
+        status: "live",
+        desc: "We supplied and set up a portable printer so bills print on the spot — the hardware and the software handled together.",
+      },
+      {
+        label: "Technical guidance",
+        badge: "Ongoing",
+        status: "ongoing",
+        desc: "As a young company, they also get free consultations from us — including how to keep their accounts and pages secure.",
+      },
     ],
-    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
-    services: ["REPLACE — service", "REPLACE — service"],
+    outcome: "A startup selling with a proper POS from day one, and a technical partner they can call as they grow.",
+    services: ["Mobile POS", "Hardware setup", "Technical consulting"],
   },
   {
     name: "Yori Foods",
     monogram: "YF",
-    industry: "REPLACE — industry and city",
-    summary: "REPLACE — one line on how the work started.",
+    industry: "Food & Beverage",
+    summary: "Hosting moved, site brought up to date, and SEO put in place.",
     steps: [
-      { label: "REPLACE — project", badge: "Live", status: "live", desc: "REPLACE — what you built, in one sentence." },
-      { label: "REPLACE — project", badge: "Phase 2", status: "phase", desc: "REPLACE — the next piece of work, or delete this step." },
+      {
+        label: "Hosting move",
+        badge: "Live",
+        status: "live",
+        desc: "We moved them onto a hosting plan that fits how their site is actually used.",
+      },
+      {
+        label: "Website update",
+        badge: "Live",
+        status: "live",
+        desc: "Their existing site refreshed and brought up to date.",
+      },
+      {
+        label: "Search optimisation",
+        badge: "Live",
+        status: "live",
+        desc: "SEO work so the right customers can find them on Google.",
+      },
     ],
-    outcome: "REPLACE — the real outcome, in the client's own words if you have them.",
-    services: ["REPLACE — service", "REPLACE — service"],
+    outcome: "Their site now sits on the right hosting, looks current, and is set up to be found in search.",
+    services: ["Hosting", "Website updates", "SEO"],
   },
 ];
 
