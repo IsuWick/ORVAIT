@@ -86,7 +86,7 @@ export default function Footer() {
               Company
             </p>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
-              {[["About", "/about"], ["Careers", "/about"], ["Contact", "/contact"], ["Blog", "/about"]].map(([label, href]) => (
+              {[/* ["About", "/about"], */ ["Careers", "/careers"], ["Contact", "/contact"] /* , ["Blog", "/about"] */].map(([label, href]) => (
                 <li key={label}>
                   <Link
                     href={href}
